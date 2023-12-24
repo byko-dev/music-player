@@ -1,0 +1,14 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="music_player.BackgroundBlurComponent">
+    
+    <ExperimentalAcrylicBorder IsHitTestVisible="False" >
+        <ExperimentalAcrylicBorder.Material>
+            <ExperimentalAcrylicMaterial BackgroundSource="Digger" 
+                                         TintColor="Black" 
+                                         TintOpacity="1" 
+                                         MaterialOpacity="0.65" />
+        </ExperimentalAcrylicBorder.Material>
+    </ExperimentalAcrylicBorder>
+    
+</UserControl>

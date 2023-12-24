@@ -1,0 +1,56 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:musicPlayer="clr-namespace:music_player"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="300"
+        Width="500" 
+        Height="330"
+        x:Class="music_player.LoginWindow"
+        Title="Music Player - Login"
+        Background="Transparent"
+        TransparencyLevelHint="AcrylicBlur"
+        ExtendClientAreaToDecorationsHint="True"
+        CanResize="False">
+    
+    <Panel>
+       <musicPlayer:BackgroundBlurComponent />
+        
+       <Label Margin="5, 5, 0,0" FontSize="15">Music Player - Login </Label>
+        
+       <Grid HorizontalAlignment="Center" VerticalAlignment="Top" RowDefinitions="125, Auto,20,Auto,Auto,Auto" ColumnDefinitions="Auto,6,*" Width="246">
+            
+           <Label Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.ColumnSpan="3" FontSize="25">Login </Label>
+           
+           <Label Target="Username" Grid.Row="1" Grid.Column="0">Username: </Label>
+           <TextBox Name="Username" Grid.Column="2" Grid.Row="1" Watermark="Username"></TextBox>
+            
+           <Label Target="Password" Grid.Row="3" Grid.Column="0"> Password: </Label> 
+           <TextBox Grid.Column="2" Grid.Row="3" Name="Password" PasswordChar="*" Watermark="Password" />
+            
+           <Label Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" 
+                  Margin="0, 15, 0, 0"
+                  HorizontalAlignment="Center" VerticalAlignment="Center"
+                  x:Name="LoginResult" Content=""  />
+           
+           <StackPanel Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3" 
+                       Margin="0, 15, 0, 0"
+                       Orientation="Horizontal" HorizontalAlignment="Right">
+               
+               <Button Margin="0, 0, 15, 0" 
+                       Background="{DynamicResource SystemAccentColor}" 
+                       Content="Login"
+                       Click="LoginAttemptEvent"/>
+               
+               <Button Margin="0, 0, 15, 0" 
+                       BorderBrush="{DynamicResource SystemAccentColor}" 
+                       KeyboardNavigation.IsTabStop="False" 
+                       Click="OnRegisterButtonClick"
+                       Content="Register" />
+               
+               <Button Click="OnLoginAsGuest">Login as guest</Button>
+           </StackPanel>
+       </Grid>
+        
+    </Panel>
+</Window>
