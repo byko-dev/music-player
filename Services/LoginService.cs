@@ -10,9 +10,10 @@ public class LoginService
 {
     private readonly IUserRepository userRepository;
     
-    public string Username { get; set; }
-    public string Password { get; set; }
-
+    public string Username { private get; set; }
+    public string Password { private get; set; }
+    public User UserData { get; private set; }
+    
     public LoginService()
     {
         userRepository = Program.ServiceProvider.GetService<IUserRepository>();
@@ -30,6 +31,8 @@ public class LoginService
         
         if (!PasswordHasher.VerifyPassword(Password, user.Password))
             throw new Exception("Password is not valid!");
+
+        UserData = user;
         
         return "success";
     }

@@ -265,3 +265,4 @@ bin/
 files/
 publish/
 obj/
+.vs/

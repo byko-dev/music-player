@@ -1,6 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="music_player.BackgroundBlurComponent">
+             x:Class="music_player.UI.Components.BackgroundBlurComponent">
     
     <ExperimentalAcrylicBorder IsHitTestVisible="False" >
         <ExperimentalAcrylicBorder.Material>

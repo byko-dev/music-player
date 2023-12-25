@@ -3,8 +3,10 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Media;
 using music_player.Services;
+using music_player.UI.Register;
+using music_player.UI.Dashboard;
 
-namespace music_player;
+namespace music_player.UI.Login;
 
 public partial class LoginWindow : Window
 {
@@ -21,7 +23,7 @@ public partial class LoginWindow : Window
 
     private void OnLoginAsGuest(object sender, RoutedEventArgs e)
     {
-        new Dashboard().Show();
+        new DashboardWindow().Show();
         Hide();
     }
 
@@ -38,11 +40,9 @@ public partial class LoginWindow : Window
                 Password = passwordTextBox.Text
             };
                 
-            string result = registerService.LoginAttempt();
+            _ = registerService.LoginAttempt();
 
-            SetResponseMessage(result);
-            
-            new Dashboard().Show();
+            (new DashboardWindow(registerService.UserData)).Show();
             Hide();
         }
         catch (Exception exception)

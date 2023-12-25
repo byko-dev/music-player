@@ -1,0 +1,106 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:components="clr-namespace:music_player.UI.Components"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="300"
+        Width="1100" 
+        Height="600"
+        x:Class="music_player.UI.Dashboard.DashboardWindow"
+        Title="Music Player - Dashboard"
+        Icon="/UI/Assets/icon.png"
+        Background="Transparent"
+        TransparencyLevelHint="AcrylicBlur"
+        ExtendClientAreaToDecorationsHint="True"
+        CanResize="False">
+    
+    <Panel>
+       <components:BackgroundBlurComponent />
+       
+       <Label Margin="5, 5, 0,0" FontSize="15">Music Player - Dashboard </Label>
+       
+       <Grid RowDefinitions="180, 300, 80" ColumnDefinitions="300, 500, 300" 
+             HorizontalAlignment="Center" VerticalAlignment="Top"
+             Margin="0, 40, 0, 0" >
+           
+           <Panel Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Width="300" Height="560">
+               
+               <Border Width="300" Height="570"
+                       Opacity="0.60"
+                       Background="#121212"
+                       CornerRadius="10">
+
+                   <StackPanel>
+                       
+                       <StackPanel Width="300" Margin="3, 25, 0, 25" Orientation="Horizontal">
+                           <Image Margin="20, 0, 0, 0" Width="30" Height="30" Source="/UI/Assets/profile_neon.png" />
+                           <TextBlock Margin="10, 0, 0, 0" VerticalAlignment="Center" Text="Login as: " />
+                           <TextBlock Name="UsernameLabel" Foreground="#39FF14" VerticalAlignment="Center" Text="Guest" />
+                       </StackPanel>
+                       
+                       <Button Width="300" Margin="3, 2">
+                           <Button.Content>
+                               <StackPanel Orientation="Horizontal">
+                                   <Image Margin="15, 0, 0, 0" Width="30" Height="30" Source="/UI/Assets/library.png" />
+                                   <TextBlock Margin="10, 0, 0, 0" VerticalAlignment="Center" Text="My playlist" />
+                               </StackPanel>
+                           </Button.Content>
+                       </Button>
+                       
+                       <Button Width="300" Margin="3, 2">
+                           <Button.Content>
+                               <StackPanel Orientation="Horizontal">
+                                   <Image Margin="15, 0, 0, 0" Width="30" Height="30" Source="/UI/Assets/global_lib.png" />
+                                   <TextBlock Margin="10, 0, 0, 0" VerticalAlignment="Center" Text="All sounds" />
+                               </StackPanel>
+                           </Button.Content>
+                       </Button>
+                       
+                       <Button Width="300" Margin="3, 2">
+                           <Button.Content>
+                               <StackPanel Orientation="Horizontal">
+                                   <Image Margin="15, 0, 0, 0" Width="30" Height="30" Source="/UI/Assets/add.png" />
+                                   <TextBlock Margin="10, 0, 0, 0" VerticalAlignment="Center" Text="Add Sound" />
+                               </StackPanel>
+                           </Button.Content>
+                       </Button>
+                       
+                       <Button Width="300" Margin="3, 2" Click="OnLogoutButtonClick"> 
+                           <Button.Content>
+                               <StackPanel Orientation="Horizontal">
+                                   <Image Margin="15, 0, 0, 0" Width="30" Height="30" Source="/UI/Assets/logout.png" />
+                                   <TextBlock Margin="10, 0, 0, 0" VerticalAlignment="Center" Text="Logout" />
+                               </StackPanel>
+                           </Button.Content>
+                       </Button>
+                   </StackPanel>
+               </Border>
+               
+           </Panel>
+           
+           <Panel Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Width="800" Height="80"
+                  Opacity="0.60"
+                  Background="Black">
+               
+               <Slider Name="SliderWithTooltip"
+                       Value="0"
+                       Minimum="0"
+                       Maximum="3.40"
+                       Width="300">
+                   <Slider.Styles>
+                       <Style Selector="Slider /template/ Thumb">
+                           <Setter Property="ToolTip.Tip" Value="{Binding $parent[Slider].Value, Mode=OneWay, StringFormat='Play \{0:f\}'}" />
+                           <Setter Property="ToolTip.Placement" Value="Top" />
+                           <Setter Property="ToolTip.VerticalOffset" Value="-10" />
+                           <Setter Property="ToolTip.HorizontalOffset" Value="-30" />
+                       </Style>
+                   </Slider.Styles>
+               </Slider>
+           </Panel>
+           
+       </Grid>
+       
+       
+        
+    </Panel>
+</Window>

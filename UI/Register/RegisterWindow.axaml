@@ -2,19 +2,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:musicPlayer="clr-namespace:music_player"
+        xmlns:components="clr-namespace:music_player.UI.Components"
         mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="300"
         Width="500" 
         Height="380"
-        x:Class="music_player.RegisterWindow"
+        x:Class="music_player.UI.Register.RegisterWindow"
         Title="Music Player - Register"
+        Icon="/UI/Assets/icon.png"
         Background="Transparent"
         TransparencyLevelHint="AcrylicBlur"
         ExtendClientAreaToDecorationsHint="True"
         CanResize="False">
     
     <Panel>
-        <musicPlayer:BackgroundBlurComponent />
+        <components:BackgroundBlurComponent />
         
         <Label Margin="5, 5, 0,0" FontSize="15">Music Player - Register </Label>
         

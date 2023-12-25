@@ -3,15 +3,14 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Media;
 using music_player.Services;
+using music_player.UI.Login;
 
-namespace music_player;
+namespace music_player.UI.Register;
 
 public partial class RegisterWindow : Window
 {
-    
     public RegisterWindow()
     {
-        
         InitializeComponent();
     }
     

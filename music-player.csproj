@@ -42,7 +42,7 @@
       <DependentUpon>App.axaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UI\Dashboard\Dashboard.axaml.cs">
+    <Compile Update="UI\Dashboard\DashboardWindow.axaml.cs">
       <DependentUpon>LoginWindow.axaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -54,5 +54,16 @@
       <DependentUpon>App.axaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <AvaloniaResource Include="UI\Assets\add.png" />
+    <AvaloniaResource Include="UI\Assets\library.png" />
+    <AvaloniaResource Include="UI\Assets\global_lib.png" />
+    <AvaloniaResource Include="UI\Assets\logout.png" />
+    <AvaloniaResource Include="UI\Assets\profile.png" />
+    <AvaloniaResource Include="UI\Assets\profile_neon.png" />
+    <AvaloniaResource Include="UI\Assets\icon.png" />
   </ItemGroup>
 </Project>
