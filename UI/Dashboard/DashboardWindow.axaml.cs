@@ -1,6 +1,7 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using music_player.Models;
+using music_player.UI.AddSound;
 using music_player.UI.Login;
 
 namespace music_player.UI.Dashboard;
@@ -22,6 +23,11 @@ public partial class DashboardWindow : Window
         (new LoginWindow()).Show();
         Hide();
     }
+
+    public void AddNewSoundButtonClick(object sender, RoutedEventArgs e)
+    {
+        (new AddSoundWindow(userLogged)).Show();
+    }
     
     private void LoadUserData()
     {
@@ -32,7 +38,6 @@ public partial class DashboardWindow : Window
 
     private void SetUsernameLabel()
     {
-        var usernameLabel = this.FindControl<TextBlock>("UsernameLabel");
-        usernameLabel.Text = userLogged.Username;
+        UsernameLabel.Text = userLogged.Username;
     }
 }

@@ -46,6 +46,10 @@
       <DependentUpon>LoginWindow.axaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UI\AddSound\AddSoundWindow.axaml.cs">
+      <DependentUpon>RegisterWindow.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
 

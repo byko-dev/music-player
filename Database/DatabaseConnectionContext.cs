@@ -7,7 +7,9 @@ namespace music_player.Database;
 public class DatabaseConnectionContext : DbContext
 {
     public DbSet<User> Users { get; set; }
-    
+    public DbSet<Sound> Sounds { get; set; }
+    public DbSet<FileRecord> Files { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseMySql(@"Server=localhost;Port=3306;Database=music_player;User=root;Password=root;", 

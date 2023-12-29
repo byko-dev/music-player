@@ -3,6 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:components="clr-namespace:music_player.UI.Components"
+        xmlns:ui="clr-namespace:music_player.UI"
         mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="300"
         Width="1100" 
         Height="600"
@@ -56,7 +57,7 @@
                            </Button.Content>
                        </Button>
                        
-                       <Button Width="300" Margin="3, 2">
+                       <Button Width="300" Margin="3, 2" Click="AddNewSoundButtonClick">
                            <Button.Content>
                                <StackPanel Orientation="Horizontal">
                                    <Image Margin="15, 0, 0, 0" Width="30" Height="30" Source="/UI/Assets/add.png" />
