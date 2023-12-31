@@ -37,5 +37,6 @@ class Program
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IFileRecordRepository, FileRecordRepository>();
         services.AddScoped<ISoundRepository, SoundRepository>();
+        services.AddScoped<IPlaylistRepository, PlaylistRepository>();
     }
 }

@@ -15,7 +15,7 @@ public class FileRecordRepository : IFileRecordRepository
     
     public FileRecord? GetById(int id)
     {
-        throw new System.NotImplementedException();
+        return context.Files.Find(id);
     }
 
     public async Task<int> Add(FileRecord fileRecord)
