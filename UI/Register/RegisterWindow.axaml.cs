@@ -22,17 +22,13 @@ public partial class RegisterWindow : Window
 
     private void RegisterAttemptEvent(object sender, RoutedEventArgs e)
     {
-        var usernameTextBox = this.Find<TextBox>("Username");
-        var passwordTextBox = this.Find<TextBox>("Password");
-        var retypedPasswordTextBox = this.Find<TextBox>("PasswordRetyped");
-        
         try
         {
             RegisterService registerService = new RegisterService()
             {
-                Username = usernameTextBox.Text,
-                Password = passwordTextBox.Text,
-                RetypedPassword = retypedPasswordTextBox.Text
+                Username = Username!.Text,
+                Password = Password!.Text,
+                RetypedPassword = PasswordRetyped!.Text
             };
                 
             string result = registerService.RegisterAttempt();
@@ -44,12 +40,15 @@ public partial class RegisterWindow : Window
             SetResponseMessage(exception.Message, false);
         }
     }
+    
+    public void Window_Closed(object sender, EventArgs e)
+    {
+        Environment.Exit(0);
+    }
 
     private void SetResponseMessage(string message, bool success = true)
     {
-        var registerResultLabel = this.FindControl<Label>("RegisterResult");
-        
-        registerResultLabel.Content = message;
-        registerResultLabel.Foreground = new SolidColorBrush(success ? Colors.Green : Colors.Red);
+        RegisterResult.Content = message;
+        RegisterResult.Foreground = new SolidColorBrush(success ? Colors.Green : Colors.Red);
     }
 }

@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
+using music_player.Libs;
 using music_player.Models;
 using music_player.Repository;
 
@@ -13,11 +15,15 @@ public class SoundService
     public string? Title;
     public string? MusicGenre;
     public int FileId;
-    public int OwnerId;
     
     public SoundService()
     {
         soundRepository = Program.ServiceProvider.GetService<ISoundRepository>();
+    }
+    
+    public Sound? GetById(int Id)
+    {
+        return soundRepository.GetById(Id);
     }
     
     public string Add()
@@ -27,17 +33,26 @@ public class SoundService
         soundRepository.Add(new Sound()
         {
             FileId = FileId,
-            OwnerId = OwnerId,
+            OwnerId = ApplicationContext.Instance.LoggedUser!.Id,
             Name = Title!,
             Author = Author!,
-            Category = MusicGenre!
+            Category = MusicGenre!,
+            User = ApplicationContext.Instance.LoggedUser
         });
         
-        return "success";
+        return "Sound was uploaded successful!";
     }
 
+    public List<Sound> GetAllSounds()
+    {
+        return soundRepository.All();
+    }
+    
     private void Validator()
     {
+        if (!ApplicationContext.Instance.IsUserLogged())
+            throw new Exception("You must be logged in to upload music tracks!"); 
+        
         if (string.IsNullOrEmpty(Title))
             throw new Exception("Title cannot be empty!");
         

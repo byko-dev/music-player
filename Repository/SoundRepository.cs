@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using music_player.Database;
 using music_player.Models;
 
@@ -33,6 +34,6 @@ public class SoundRepository : ISoundRepository
 
     public Sound? GetById(int id)
     {
-        return context.Sounds.Find(id);
+        return context.Sounds.Include(s => s.File).FirstOrDefault(s => s.Id == id);
     }
 }

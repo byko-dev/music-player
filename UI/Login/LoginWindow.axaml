@@ -8,11 +8,12 @@
         Height="330"
         x:Class="music_player.UI.Login.LoginWindow"
         Title="Music Player - Login"
-        Icon="/UI/Assets/icon.png"
+        Icon="/UI/Assets/Img/icon.png"
         Background="Transparent"
         TransparencyLevelHint="AcrylicBlur"
         ExtendClientAreaToDecorationsHint="True"
-        CanResize="False">
+        CanResize="False"
+        Closed="Window_Closed" >
     
     <Panel>
        <components:BackgroundBlurComponent />
@@ -24,10 +25,10 @@
            <Label Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.ColumnSpan="3" FontSize="25">Login </Label>
            
            <Label Target="Username" Grid.Row="1" Grid.Column="0">Username: </Label>
-           <TextBox Name="Username" Grid.Column="2" Grid.Row="1" Watermark="Username"></TextBox>
+           <TextBox x:Name="Username" Grid.Column="2" Grid.Row="1" Watermark="Username"></TextBox>
             
            <Label Target="Password" Grid.Row="3" Grid.Column="0"> Password: </Label> 
-           <TextBox Grid.Column="2" Grid.Row="3" Name="Password" PasswordChar="*" Watermark="Password" />
+           <TextBox Grid.Column="2" Grid.Row="3" x:Name="Password" PasswordChar="*" Watermark="Password" />
             
            <Label Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" 
                   Margin="0, 15, 0, 0"

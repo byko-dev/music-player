@@ -1,10 +1,8 @@
 using System;
 using System.Linq;
-using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Media;
-using music_player.Models;
 using music_player.Services;
 
 namespace music_player.UI.AddSound;
@@ -12,13 +10,10 @@ namespace music_player.UI.AddSound;
 public partial class AddSoundWindow : Window
 {
     private string FilePath;
-
-    private User? userLogged; 
     
-    public AddSoundWindow(User? userLogged = null)
+    public AddSoundWindow()
     {
         InitializeComponent();
-        this.userLogged = userLogged;
     }
     
     private async void OnFileSelectClick(object? sender, RoutedEventArgs e)
@@ -52,8 +47,7 @@ public partial class AddSoundWindow : Window
                 Title = Title.Text,
                 Author = Author.Text,
                 MusicGenre = selectedItem?.Content?.ToString() ?? "",
-                FileId = fileId,
-                OwnerId = userLogged?.Id ?? 0
+                FileId = fileId
             };
 
             string result = soundService.Add();

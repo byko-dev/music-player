@@ -2,6 +2,7 @@ using System;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Media;
+using music_player.Libs;
 using music_player.Services;
 using music_player.UI.Register;
 using music_player.UI.Dashboard;
@@ -23,26 +24,29 @@ public partial class LoginWindow : Window
 
     private void OnLoginAsGuest(object sender, RoutedEventArgs e)
     {
+        ApplicationContext.Instance.IsLogged = false;
+        
         new DashboardWindow().Show();
         Hide();
     }
 
     private void LoginAttemptEvent(object sender, RoutedEventArgs e)
     {
-        var usernameTextBox = this.FindControl<TextBox>("Username");
-        var passwordTextBox = this.FindControl<TextBox>("Password");
-        
         try
         {
             LoginService registerService = new LoginService()
             {
-                Username = usernameTextBox.Text,
-                Password = passwordTextBox.Text
+                Username = Username?.Text,
+                Password = Password?.Text
             };
                 
             _ = registerService.LoginAttempt();
 
-            (new DashboardWindow(registerService.UserData)).Show();
+            //set ApplicationContext props
+            ApplicationContext.Instance.IsLogged = true;
+            ApplicationContext.Instance.LoggedUser = registerService.UserData;
+            
+            (new DashboardWindow()).Show();
             Hide();
         }
         catch (Exception exception)
@@ -51,12 +55,15 @@ public partial class LoginWindow : Window
         }
     }
     
+    public void Window_Closed(object sender, EventArgs e)
+    {
+        Environment.Exit(0);
+    }
+    
     private void SetResponseMessage(string message, bool success = true)
     {
-        var registerResultLabel = this.FindControl<Label>("LoginResult");
-        
-        registerResultLabel.Content = message;
-        registerResultLabel.Foreground = new SolidColorBrush(success ? Colors.Green : Colors.Red);
+        LoginResult.Content = message;
+        LoginResult.Foreground = new SolidColorBrush(success ? Colors.Green : Colors.Red);
     }
     
 }

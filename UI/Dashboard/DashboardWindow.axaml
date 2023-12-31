@@ -6,27 +6,40 @@
         xmlns:ui="clr-namespace:music_player.UI"
         mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="300"
         Width="1100" 
-        Height="600"
+        Height="650"
         x:Class="music_player.UI.Dashboard.DashboardWindow"
         Title="Music Player - Dashboard"
-        Icon="/UI/Assets/icon.png"
+        Icon="/UI/Assets/Img/icon.png"
         Background="Transparent"
         TransparencyLevelHint="AcrylicBlur"
         ExtendClientAreaToDecorationsHint="True"
-        CanResize="False">
+        CanResize="False"
+        x:DataType="ui:MainViewModel"
+        Closed="Window_Closed"
+        >
+    
+    <Window.Styles>
+        <Style Selector="Button.greenClass">
+            <Setter Property="Background" Value="#4CAF50"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="CornerRadius" Value="4"/>
+        </Style>
+        
+    </Window.Styles>
     
     <Panel>
        <components:BackgroundBlurComponent />
        
        <Label Margin="5, 5, 0,0" FontSize="15">Music Player - Dashboard </Label>
        
-       <Grid RowDefinitions="180, 300, 80" ColumnDefinitions="300, 500, 300" 
+       <Grid RowDefinitions="185, 300, 130" ColumnDefinitions="300, 500, 300" 
              HorizontalAlignment="Center" VerticalAlignment="Top"
-             Margin="0, 40, 0, 0" >
+             Margin="0, 35, 0, 0" >
            
-           <Panel Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Width="300" Height="560">
-               
-               <Border Width="300" Height="570"
+           <Border Name="LeftControlPanel" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Width="300" Height="615"
                        Opacity="0.60"
                        Background="#121212"
                        CornerRadius="10">
@@ -34,25 +47,34 @@
                    <StackPanel>
                        
                        <StackPanel Width="300" Margin="3, 25, 0, 25" Orientation="Horizontal">
-                           <Image Margin="20, 0, 0, 0" Width="30" Height="30" Source="/UI/Assets/profile_neon.png" />
+                           <Image Margin="20, 0, 0, 0" Width="30" Height="30" Source="/UI/Assets/Img/profile_neon.png" />
                            <TextBlock Margin="10, 0, 0, 0" VerticalAlignment="Center" Text="Login as: " />
                            <TextBlock Name="UsernameLabel" Foreground="#39FF14" VerticalAlignment="Center" Text="Guest" />
                        </StackPanel>
                        
-                       <Button Width="300" Margin="3, 2">
+                       <Button x:Name="MyPlaylistButton" Width="300" Margin="3, 2" IsVisible="False">
                            <Button.Content>
                                <StackPanel Orientation="Horizontal">
-                                   <Image Margin="15, 0, 0, 0" Width="30" Height="30" Source="/UI/Assets/library.png" />
-                                   <TextBlock Margin="10, 0, 0, 0" VerticalAlignment="Center" Text="My playlist" />
+                                   <Image Margin="15, 0, 0, 0" Width="30" Height="30" Source="/UI/Assets/Img/library.png" />
+                                   <TextBlock Margin="10, 0, 0, 0" VerticalAlignment="Center" Text="My Playlist" />
                                </StackPanel>
                            </Button.Content>
                        </Button>
                        
-                       <Button Width="300" Margin="3, 2">
+                       <Button x:Name="MyUploadedSoundsButton" Width="300" Margin="3, 2" IsVisible="False" Click="LoadUserUploadedSounds_ButtonEvent">
                            <Button.Content>
                                <StackPanel Orientation="Horizontal">
-                                   <Image Margin="15, 0, 0, 0" Width="30" Height="30" Source="/UI/Assets/global_lib.png" />
-                                   <TextBlock Margin="10, 0, 0, 0" VerticalAlignment="Center" Text="All sounds" />
+                                   <Image Margin="15, 0, 0, 0" Width="27" Height="27" Source="/UI/Assets/Img/my_sounds.png" />
+                                   <TextBlock Margin="10, 0, 0, 0" VerticalAlignment="Center" Text="My Uploaded Sounds" />
+                               </StackPanel>
+                           </Button.Content>
+                       </Button>
+                       
+                       <Button Width="300" Margin="3, 2" Click="LoadAllSounds_ButtonEvent">
+                           <Button.Content>
+                               <StackPanel Orientation="Horizontal">
+                                   <Image Margin="15, 0, 0, 0" Width="30" Height="30" Source="/UI/Assets/Img/global_lib.png" />
+                                   <TextBlock Margin="10, 0, 0, 0" VerticalAlignment="Center" Text="All Sounds" />
                                </StackPanel>
                            </Button.Content>
                        </Button>
@@ -60,7 +82,7 @@
                        <Button Width="300" Margin="3, 2" Click="AddNewSoundButtonClick">
                            <Button.Content>
                                <StackPanel Orientation="Horizontal">
-                                   <Image Margin="15, 0, 0, 0" Width="30" Height="30" Source="/UI/Assets/add.png" />
+                                   <Image Margin="15, 0, 0, 0" Width="30" Height="30" Source="/UI/Assets/Img/add.png" />
                                    <TextBlock Margin="10, 0, 0, 0" VerticalAlignment="Center" Text="Add Sound" />
                                </StackPanel>
                            </Button.Content>
@@ -69,25 +91,51 @@
                        <Button Width="300" Margin="3, 2" Click="OnLogoutButtonClick"> 
                            <Button.Content>
                                <StackPanel Orientation="Horizontal">
-                                   <Image Margin="15, 0, 0, 0" Width="30" Height="30" Source="/UI/Assets/logout.png" />
+                                   <Image Margin="15, 0, 0, 0" Width="30" Height="30" Source="/UI/Assets/Img/logout.png" />
                                    <TextBlock Margin="10, 0, 0, 0" VerticalAlignment="Center" Text="Logout" />
                                </StackPanel>
                            </Button.Content>
                        </Button>
                    </StackPanel>
                </Border>
-               
-           </Panel>
            
-           <Panel Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Width="800" Height="80"
+           <Panel Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Width="800" Height="130"
                   Opacity="0.60"
                   Background="Black">
                
-               <Slider Name="SliderWithTooltip"
-                       Value="0"
+               <Grid Margin="5" RowDefinitions="Auto" ColumnDefinitions="Auto, Auto, Auto" Width="200" VerticalAlignment="Center" HorizontalAlignment="Center">
+                   
+                   <Button Grid.Column="0" Margin="10" CornerRadius="20" Classes="greenClass"> 
+                       <Button.Content>
+                           <StackPanel Orientation="Horizontal">
+                               <Image Width="25" Height="25" Source="/UI/Assets/Img/back.png" />
+                           </StackPanel>
+                       </Button.Content>
+                   </Button>
+                   
+                   <Button Grid.Column="1" Click="TogglePlayButtonClick" Classes="greenClass" Margin="10" CornerRadius="20"> 
+                       <Button.Content>
+                           <StackPanel Orientation="Horizontal">
+                               <Image x:Name="PlayImage" Width="22" Height="22"  Source="/UI/Assets/Img/play.png" />
+                           </StackPanel>
+                       </Button.Content>
+                   </Button>
+                   
+                   <Button Grid.Column="2" Margin="10" CornerRadius="20" Classes="greenClass"> 
+                       <Button.Content>
+                           <StackPanel Orientation="Horizontal">
+                               <Image Width="25" Height="25" Source="/UI/Assets/Img/next.png" />
+                           </StackPanel>
+                       </Button.Content>
+                   </Button>
+               </Grid>
+               <Slider VerticalAlignment="Bottom"
+                       x:Name="MusicSlider"
+                       Value="{Binding SliderPlayingValue}"
                        Minimum="0"
-                       Maximum="3.40"
-                       Width="300">
+                       Maximum="340"
+                       Width="300"
+                       Height="45">
                    <Slider.Styles>
                        <Style Selector="Slider /template/ Thumb">
                            <Setter Property="ToolTip.Tip" Value="{Binding $parent[Slider].Value, Mode=OneWay, StringFormat='Play \{0:f\}'}" />
@@ -97,11 +145,50 @@
                        </Style>
                    </Slider.Styles>
                </Slider>
+               
+               <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0, 15, 0, 0">
+                   <TextBlock Foreground="#39FF14" Text="Now Playing: " />
+                   <TextBlock x:Name="PlayingNowLabel" Text="None"  />
+               </StackPanel>
+               
+               
+               <Slider VerticalAlignment="Center" HorizontalAlignment="Right"
+                       x:Name="VolumeSlider"
+                       Value="{Binding SliderVolumeValue}"
+                       Minimum="0"
+                       Maximum="100"
+                       Width="100"
+                       Margin="0, 0, 30, 0"
+                       Height="45">
+                   <Slider.Styles>
+                       <Style Selector="Slider /template/ Thumb">
+                           <Setter Property="ToolTip.Tip" Value="{Binding $parent[Slider].Value, Mode=OneWay, StringFormat='Volume \{0:f\}'}" />
+                           <Setter Property="ToolTip.Placement" Value="Top" />
+                           <Setter Property="ToolTip.VerticalOffset" Value="-10" />
+                           <Setter Property="ToolTip.HorizontalOffset" Value="-30" />
+                       </Style>
+                   </Slider.Styles>
+               </Slider>
+               
            </Panel>
-           
+           <Panel Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Width="800" Height="485">
+               
+               <ListBox ItemsSource="{Binding Sounds}">
+                   <ListBox.ItemTemplate>
+                       <DataTemplate>
+                           <Grid ColumnDefinitions="*,*, *,Auto,Auto">
+                               <TextBlock Text="{Binding Name}" Grid.Column="0" Margin="5"/>
+                               <TextBlock Text="{Binding Author}" Grid.Column="1" Margin="5"/>
+                               <TextBlock Text="{Binding Category}" Grid.Column="2" Margin="5"/>
+                               <Button Content="Play" Grid.Column="3" Margin="5" Classes="greenClass"
+                                       CommandParameter="{Binding Id}" Click="PlayButtonEvent" />
+                               <Button Content="Modify" Grid.Column="4" Margin="5" Classes="greenClass" />
+                           </Grid>
+                       </DataTemplate>
+                   </ListBox.ItemTemplate>
+               </ListBox>
+               
+           </Panel>
        </Grid>
-       
-       
-        
     </Panel>
 </Window>

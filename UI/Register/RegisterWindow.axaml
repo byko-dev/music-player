@@ -8,11 +8,12 @@
         Height="380"
         x:Class="music_player.UI.Register.RegisterWindow"
         Title="Music Player - Register"
-        Icon="/UI/Assets/icon.png"
+        Icon="/UI/Assets/Img/icon.png"
         Background="Transparent"
         TransparencyLevelHint="AcrylicBlur"
         ExtendClientAreaToDecorationsHint="True"
-        CanResize="False">
+        CanResize="False" 
+        Closed="Window_Closed" >
     
     <Panel>
         <components:BackgroundBlurComponent />

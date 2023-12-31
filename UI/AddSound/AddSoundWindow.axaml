@@ -8,7 +8,7 @@
         Height="420"
         x:Class="music_player.UI.AddSound.AddSoundWindow"
         Title="Music Player - Add new sound"
-        Icon="/UI/Assets/icon.png"
+        Icon="/UI/Assets/Img/icon.png"
         Background="Transparent"
         TransparencyLevelHint="AcrylicBlur"
         ExtendClientAreaToDecorationsHint="True"
@@ -44,7 +44,7 @@
                 <ComboBoxItem>Classical</ComboBoxItem>
             </ComboBox>
             
-            <TextBox Margin="0, 15, 0, 0" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" x:Name="FilePathBox" IsReadOnly="True" />
+            <TextBox Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" x:Name="FilePathBox" IsReadOnly="True" Watermark="File path" Margin="0, 15, 0, 0"   />
             
             <Label Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="3" 
                    Margin="0, 15, 0, 0"

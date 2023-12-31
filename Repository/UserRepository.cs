@@ -1,4 +1,5 @@
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using music_player.Database;
 using music_player.Models;
 
@@ -26,6 +27,8 @@ public class UserRepository : IUserRepository
 
     public User? GetByUsername(string username)
     {
-        return context.Users.FirstOrDefault(u => u.Username == username);
+        return context.Users.Include(s => s.Sounds)
+            .Include(p => p.Playlists)
+            .FirstOrDefault(u => u.Username == username);
     }
 }

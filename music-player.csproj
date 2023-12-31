@@ -21,6 +21,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="NAudio" Version="2.2.1" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.2" />
   </ItemGroup>
 
@@ -62,12 +63,17 @@
 
 
   <ItemGroup>
-    <AvaloniaResource Include="UI\Assets\add.png" />
-    <AvaloniaResource Include="UI\Assets\library.png" />
-    <AvaloniaResource Include="UI\Assets\global_lib.png" />
-    <AvaloniaResource Include="UI\Assets\logout.png" />
-    <AvaloniaResource Include="UI\Assets\profile.png" />
-    <AvaloniaResource Include="UI\Assets\profile_neon.png" />
-    <AvaloniaResource Include="UI\Assets\icon.png" />
+    <AvaloniaResource Include="UI\Assets\Img\add.png" />
+    <AvaloniaResource Include="UI\Assets\Img\back.png" />
+    <AvaloniaResource Include="UI\Assets\Img\global_lib.png" />
+    <AvaloniaResource Include="UI\Assets\Img\icon.png" />
+    <AvaloniaResource Include="UI\Assets\Img\library.png" />
+    <AvaloniaResource Include="UI\Assets\Img\logout.png" />
+    <AvaloniaResource Include="UI\Assets\Img\my_sounds.png" />
+    <AvaloniaResource Include="UI\Assets\Img\next.png" />
+    <AvaloniaResource Include="UI\Assets\Img\pause.png" />
+    <AvaloniaResource Include="UI\Assets\Img\play.png" />
+    <AvaloniaResource Include="UI\Assets\Img\profile.png" />
+    <AvaloniaResource Include="UI\Assets\Img\profile_neon.png" />
   </ItemGroup>
 </Project>
