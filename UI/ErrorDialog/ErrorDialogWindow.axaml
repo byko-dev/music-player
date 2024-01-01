@@ -1,0 +1,30 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:components="clr-namespace:music_player.UI.Components"
+        mc:Ignorable="d"
+        Width="450" 
+        MinHeight="90"
+        SizeToContent="Height"
+        x:Class="music_player.UI.ErrorDialog.ErrorDialogWindow"
+        Title="Music Player - Error"
+        Icon="/UI/Assets/Img/icon.png"
+        Background="Transparent"
+        TransparencyLevelHint="AcrylicBlur"
+        ExtendClientAreaToDecorationsHint="True"
+        CanResize="False">
+        
+        <Panel>
+                <components:BackgroundBlurComponent />
+                
+                <Label Foreground="Red" Margin="5, 5, 0,0" FontSize="15">Music Player - Error </Label>
+        
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10, 40, 10, 10" Width="430">
+                        <TextBlock TextWrapping="Wrap"  x:Name="ErrorMessageContent" />
+                        <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Close"  Margin="10"  />
+                </StackPanel>
+                
+        </Panel>
+        
+</Window>

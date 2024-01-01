@@ -1,11 +1,11 @@
 using System;
-using System.Collections.ObjectModel;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using music_player.Libs;
 using music_player.Models;
 using music_player.Services;
 using music_player.UI.AddSound;
+using music_player.UI.ErrorDialog;
 using music_player.UI.Login;
 
 namespace music_player.UI.Dashboard;
@@ -15,13 +15,14 @@ public partial class DashboardWindow : Window
     public DashboardWindow()
     {
         InitializeComponent();
-        DataContext = new MainViewModel();
-        
+
+        LoadDataContext();
         LoadUserData();
     }
 
     public void OnLogoutButtonClick(object sender, RoutedEventArgs e)
     {
+        AudioPlayer.Instance.Dispose();
         (new LoginWindow()).Show();
         Hide();
     }
@@ -33,46 +34,61 @@ public partial class DashboardWindow : Window
 
     public void LoadUserUploadedSounds_ButtonEvent(object sender, RoutedEventArgs e)
     {
-        if (DataContext is MainViewModel viewModel && ApplicationContext.Instance.IsUserLogged())
-        {
-            var Sounds = new ObservableCollection<Sound>();
-
-            foreach (Sound sound in ApplicationContext.Instance.LoggedUser.Sounds)
-            {
-                Sounds.Add(sound);
-            }
-            
-            viewModel.Sounds = Sounds;
-        }
+        ApplicationContext.Instance.LoadedPlaylist = PlaylistEnum.UploadedSounds;
+        new PlaylistController().ViewPlaylist();
     }
 
     public void LoadAllSounds_ButtonEvent(object sender, RoutedEventArgs e)
     {
-        if (DataContext is MainViewModel viewModel)
-        {
-            var Sounds = new ObservableCollection<Sound>();
-            foreach (Sound sound in (new SoundService()).GetAllSounds())
-            {
-                Sounds.Add(sound);
-            }
-            
-            viewModel.Sounds = Sounds;
-        }
+        ApplicationContext.Instance.LoadedPlaylist = PlaylistEnum.AllSounds;
+        new PlaylistController().ViewPlaylist();
     }
     
     public void PlayButtonEvent(object sender, RoutedEventArgs e)
     {
-        if (sender is Button button && button.CommandParameter is int Id)
+        try
         {
-            PlayImage.Source = PlayButtonAction.Instance.SetPlaying();
+            if (!(sender is Button button && button.CommandParameter is int Id))
+                throw new Exception("Invalid sound ID");
             
-            Sound? sound = (new SoundService()).GetById(Id);
+            PlaySound(Id);
+        }
+        catch (Exception exception)
+        {
+            (new ErrorDialogWindow(exception.Message)).Show();
+        }
+    }
 
-            PlayingNowLabel.Text = (sound!.Name + " - " + sound.Author);
+    public void PreviousSound_ButtonEvent(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            int Id = new PlaylistController().GetPreviousSoundId();
+
+            if (Id == -1) return;
             
-            AudioPlayer.Instance.Play(sound!.File.FileContent);
+            PlaySound(Id);
+        }
+        catch (Exception exception)
+        {
+            (new ErrorDialogWindow(exception.Message)).Show();
+        }
 
-            MusicSlider.Maximum = AudioPlayer.Instance.GetTrackLengthInSeconds();
+    }
+
+    public void NextSound_ButtonEvent(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            int Id = new PlaylistController().GetNextSoundId();
+
+            if (Id == -1) return;
+            
+            PlaySound(Id);
+        }
+        catch (Exception exception)
+        {
+            (new ErrorDialogWindow(exception.Message)).Show();
         }
     }
     
@@ -87,17 +103,40 @@ public partial class DashboardWindow : Window
         Environment.Exit(0);
     }
     
+    private void LoadDataContext()
+    {
+        MainViewModel dataContextModel = new MainViewModel();
+        DataContext = dataContextModel;
+        ApplicationContext.Instance.DataContextModel = dataContextModel;
+    }
+    
     private void LoadUserData()
     {
         if(!ApplicationContext.Instance.IsUserLogged()) return;
         
         SetUsernameLabel();
     }
-
+    
     private void SetUsernameLabel()
     {
         UsernameLabel.Text = ApplicationContext.Instance.LoggedUser!.Username;
         MyPlaylistButton.IsVisible = true;
         MyUploadedSoundsButton.IsVisible = true;
+    }
+
+    private void PlaySound(int Id)
+    {
+        Sound? sound = new SoundService().GetById(Id);
+
+        if (sound == null)
+            throw new Exception("Sound was not found!");
+            
+        PlayImage.Source = PlayButtonAction.Instance.SetPlaying();
+        PlayingNowLabel.Text = (sound.Name + " - " + sound.Author);
+            
+        ApplicationContext.Instance.PlayingSoundId = sound.Id;
+            
+        AudioPlayer.Instance.Play(sound.File.FileContent);
+        MusicSlider.Maximum = AudioPlayer.Instance.GetTrackLengthInSeconds();
     }
 }

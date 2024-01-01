@@ -21,7 +21,7 @@ public partial class LoginWindow : Window
         new RegisterWindow().Show();
         Hide();
     }
-
+    
     private void OnLoginAsGuest(object sender, RoutedEventArgs e)
     {
         ApplicationContext.Instance.IsLogged = false;

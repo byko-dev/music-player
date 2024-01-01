@@ -3,6 +3,7 @@ using System.Linq;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Media;
+using music_player.Libs;
 using music_player.Services;
 
 namespace music_player.UI.AddSound;
@@ -51,8 +52,10 @@ public partial class AddSoundWindow : Window
             };
 
             string result = soundService.Add();
-            
             SetResponseMessage(result);
+            
+            //reload playlist
+            new PlaylistController().ViewPlaylist();
         }
         catch (Exception exception)
         {

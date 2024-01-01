@@ -4,7 +4,6 @@ using System.Runtime.CompilerServices;
 using System.Timers;
 using music_player.Libs;
 using music_player.Models;
-using music_player.Services;
 
 namespace music_player.UI;
 
@@ -17,7 +16,6 @@ public class MainViewModel : INotifyPropertyChanged
     
     public MainViewModel()
     {
-        Sounds = new ObservableCollection<Sound>();
         LoadSounds();
         
         updateSliderTimer = new Timer(300); 
@@ -27,10 +25,7 @@ public class MainViewModel : INotifyPropertyChanged
 
     private void LoadSounds()
     {
-        foreach (Sound sound in (new SoundService()).GetAllSounds())
-        {
-            Sounds.Add(sound);
-        }
+        Sounds = new PlaylistController().GetPlaylist();
     }
     
     private ObservableCollection<Sound> _sounds;
