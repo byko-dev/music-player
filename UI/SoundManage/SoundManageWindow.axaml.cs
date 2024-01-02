@@ -86,10 +86,12 @@ public partial class SoundManageWindow : Window
     
     public void AddToPlaylist_ButtonEvent(object sender, RoutedEventArgs e)
     {
-        //TODO:: update button styles
         PlaylistService playlistService = new PlaylistService();
         playlistService.Sound = sound;
         playlistService.UpdatePlaylist();
+        
+        //update button styles
+        SetStyleForAddToPlaylistButton();
     }
     
     private void LoadSoundData()
@@ -98,6 +100,7 @@ public partial class SoundManageWindow : Window
         Author.Text = sound.Author;
         FilePathBox.Text = sound.File.FileName;
         SetDefaultComboBoxValue();
+        SetStyleForAddToPlaylistButton();
         
         if (!ApplicationContext.Instance.IsUserLogged() || sound.OwnerId != ApplicationContext.Instance.LoggedUser!.Id)
         {
@@ -128,5 +131,21 @@ public partial class SoundManageWindow : Window
         SoundManageResult.Content = message;
         SoundManageResult.Foreground = new SolidColorBrush(success ? Colors.Green : Colors.Red);
     }
-    
+
+    private void SetStyleForAddToPlaylistButton()
+    {
+        PlaylistService playlistService = new PlaylistService();
+        playlistService.Sound = sound;
+        
+        if(playlistService.IsOnPlaylist())
+        {
+            AddToPlaylistButton.BorderBrush = new SolidColorBrush(Colors.Red);
+            AddToPlaylistButtonLabel.Text = "Remove from Playlist";
+        }
+        else
+        {
+            AddToPlaylistButton.BorderBrush = new SolidColorBrush(Colors.Green);
+            AddToPlaylistButtonLabel.Text = "Add to Playlist";
+        }
+    }
 }

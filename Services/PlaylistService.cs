@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
 using music_player.Libs;
 using music_player.Models;
@@ -28,6 +30,13 @@ public class PlaylistService
             Add();
         }
     }
+
+    public List<Sound> GetUserPlaylist()
+    {
+        List<Playlist> soundsOnPlaylist = playlistRepository.GetByOwnerId(ApplicationContext.Instance.LoggedUser!.Id);
+    
+        return soundsOnPlaylist.Select(playlist => playlist.Sound).ToList();
+    }
     
     public void Add()
     {
@@ -56,8 +65,7 @@ public class PlaylistService
     {
         if (!ApplicationContext.Instance.IsUserLogged())
             throw new Exception("You must be logged in to add sounds to playlist!");
-
-        Console.WriteLine(ApplicationContext.Instance.LoggedUser!.Id + " " + Sound.Id);
+        
         return playlistRepository.GetByOwnerIdAndSoundId(ApplicationContext.Instance.LoggedUser!.Id, Sound.Id) != null;
     }
     

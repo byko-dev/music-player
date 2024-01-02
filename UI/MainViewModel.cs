@@ -1,5 +1,7 @@
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Timers;
 using music_player.Libs;
@@ -11,24 +13,11 @@ public class MainViewModel : INotifyPropertyChanged
 {
     private Timer updateSliderTimer;
     private bool isUpdatingFromTimer;
-    private float _sliderVolumeValue = 10;
-    private double _sliderPlayingValue;
     
-    public MainViewModel()
-    {
-        LoadSounds();
-        
-        updateSliderTimer = new Timer(300); 
-        updateSliderTimer.Elapsed += UpdateSlider;
-        updateSliderTimer.Start();
-    }
+    public ObservableCollection<Sound> OriginalSounds { get; set; }
 
-    private void LoadSounds()
-    {
-        Sounds = new PlaylistController().GetPlaylist();
-    }
-    
     private ObservableCollection<Sound> _sounds;
+    
     public ObservableCollection<Sound> Sounds
     {
         get => _sounds;
@@ -38,6 +27,21 @@ public class MainViewModel : INotifyPropertyChanged
             OnPropertyChanged(nameof(Sounds));
         }
     }
+    
+    private string _searchTerm;
+    public string SearchTerm
+    {
+        get => _searchTerm;
+        set
+        {
+            _searchTerm = value;
+            FilterSounds();
+            OnPropertyChanged(nameof(SearchTerm));
+        }
+    }
+    
+    
+    private double _sliderPlayingValue;
     
     public double SliderPlayingValue
     {
@@ -57,6 +61,9 @@ public class MainViewModel : INotifyPropertyChanged
         }
     }
     
+    
+    private float _sliderVolumeValue = 10;
+    
     public float SliderVolumeValue
     {
         get => _sliderVolumeValue;
@@ -70,6 +77,37 @@ public class MainViewModel : INotifyPropertyChanged
                 OnPropertyChanged(nameof(SliderVolumeValue));
             }
         }
+    }
+    
+    public MainViewModel()
+    {
+        LoadSounds();
+        
+        updateSliderTimer = new Timer(300); 
+        updateSliderTimer.Elapsed += UpdateSlider;
+        updateSliderTimer.Start();
+    }
+
+    private void LoadSounds()
+    {
+        OriginalSounds = new PlaylistController().GetPlaylist();
+        Sounds = new PlaylistController().GetPlaylist();
+    }
+    
+    private void FilterSounds()
+    {
+        if (string.IsNullOrEmpty(SearchTerm))
+        {
+            Sounds = new ObservableCollection<Sound>(OriginalSounds);
+        }
+        else
+        {
+            Sounds = new ObservableCollection<Sound>(OriginalSounds
+                .Where(s => s.Name.Contains(SearchTerm, StringComparison.OrdinalIgnoreCase) 
+                            || s.Author.Contains(SearchTerm, StringComparison.OrdinalIgnoreCase)
+                            || s.Category.Contains(SearchTerm, StringComparison.OrdinalIgnoreCase)));
+        }
+        OnPropertyChanged(nameof(Sounds));
     }
     
     private void UpdateSlider(object sender, ElapsedEventArgs e)

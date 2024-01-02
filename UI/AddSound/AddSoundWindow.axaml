@@ -71,7 +71,7 @@
                         KeyboardNavigation.IsTabStop="False">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/UI/Assets/Img/add.png" Width="17" Height="17" Margin="0,0,5,0"/>
-                        <TextBlock Text="Update" VerticalAlignment="Center"/>
+                        <TextBlock Text="Save" VerticalAlignment="Center"/>
                     </StackPanel>
                 </Button>
                 

@@ -10,7 +10,8 @@ public class PlaylistController
 {
     public void ViewPlaylist()
     {
-        ApplicationContext.Instance.DataContextModel.Sounds = GetPlaylist();
+        ApplicationContext.Instance.DataContextModel.Sounds = 
+            ApplicationContext.Instance.DataContextModel.OriginalSounds = GetPlaylist();
     }
 
     public ObservableCollection<Sound> GetPlaylist()
@@ -36,7 +37,7 @@ public class PlaylistController
             case PlaylistEnum.UploadedSounds:
                 return ApplicationContext.Instance.LoggedUser!.Sounds;
             case PlaylistEnum.Playlist:
-                return (new SoundService()).GetAllSounds(); //TODO:: in development process 
+                return (new PlaylistService()).GetUserPlaylist();
             default:
                 return (new SoundService()).GetAllSounds();
         }

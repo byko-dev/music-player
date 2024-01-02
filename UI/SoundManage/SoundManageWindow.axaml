@@ -4,9 +4,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:components="clr-namespace:music_player.UI.Components"
         mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="300"
-        Width="500" 
+        Width="550" 
         MinHeight="340"
-        MaxHeight="500"
+        MaxHeight="560"
         SizeToContent="Height"
         x:Class="music_player.UI.SoundManage.SoundManageWindow"
         Title="Music Player - Register"
@@ -24,7 +24,7 @@
         <Grid HorizontalAlignment="Center" VerticalAlignment="Top" 
               RowDefinitions="125, Auto, Auto, Auto, Auto, Auto, Auto"
               ColumnDefinitions="Auto,6,*" 
-              Width="300" Margin="0, 0, 0, 40">
+              Width="350" Margin="0, 0, 0, 60">
             
             <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"  
                    VerticalAlignment="Center" HorizontalAlignment="Center" 
@@ -55,10 +55,21 @@
         </Grid>
         
         <StackPanel VerticalAlignment="Bottom"
-                        Margin="0, 10"
+                        Margin="0, 10, 0, 30"
                         Orientation="Horizontal" HorizontalAlignment="Center">
                 
+                <Button x:Name="AddToPlaylistButton" Click="AddToPlaylist_ButtonEvent"
+                        HorizontalContentAlignment="Center"
+                        BorderBrush="{DynamicResource SystemAccentColor}" 
+                        KeyboardNavigation.IsTabStop="False">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/UI/Assets/Img/library.png" Width="16" Height="16" Margin="0,0,5,0"/>
+                        <TextBlock x:Name="AddToPlaylistButtonLabel" Text="Add to Playlist" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            
                 <Button x:Name="ChangeFileButton" Click="OnFileSelectClick_ButtonEvent"
+                        Margin="15, 0, 0, 0" 
                         HorizontalContentAlignment="Center"
                         KeyboardNavigation.IsTabStop="False">
                     <StackPanel Orientation="Horizontal">
@@ -70,7 +81,7 @@
                 <Button x:Name="UpdateButton" Click="Update_ButtonEvent"
                         Margin="15, 0, 0, 0" 
                         HorizontalContentAlignment="Center"
-                        BorderBrush="{DynamicResource SystemAccentColor}" 
+                        Background="{DynamicResource SystemAccentColor}" 
                         KeyboardNavigation.IsTabStop="False">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/UI/Assets/Img/add.png" Width="16" Height="16" Margin="0,0,5,0"/>
@@ -81,25 +92,14 @@
                 <Button x:Name="DeleteButton"  Click="Delete_ButtonEvent"
                         Margin="15, 0, 0, 0" 
                         HorizontalContentAlignment="Center"
-                        BorderBrush="Red" 
+                        Background="Red" 
                         KeyboardNavigation.IsTabStop="False">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/UI/Assets/Img/delete.png" Width="16" Height="16" Margin="0,0,5,0"/>
                         <TextBlock Text="Delete" VerticalAlignment="Center"/>
                     </StackPanel>
                 </Button>
-                
-                <Button x:Name="AddToPlaylistButton" Click="AddToPlaylist_ButtonEvent"
-                        Margin="15, 0, 0, 0" 
-                        HorizontalContentAlignment="Center"
-                        BorderBrush="{DynamicResource SystemAccentColor}" 
-                        KeyboardNavigation.IsTabStop="False">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/UI/Assets/Img/library.png" Width="16" Height="16" Margin="0,0,5,0"/>
-                        <TextBlock Text="Add to Playlist" VerticalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-                
+            
             </StackPanel>
         
     </Panel>

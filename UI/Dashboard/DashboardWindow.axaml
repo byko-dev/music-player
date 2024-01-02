@@ -52,7 +52,7 @@
                            <TextBlock Name="UsernameLabel" Foreground="#39FF14" VerticalAlignment="Center" Text="Guest" />
                        </StackPanel>
                        
-                       <Button x:Name="MyPlaylistButton" Width="300" Margin="3, 2" IsVisible="False">
+                       <Button x:Name="MyPlaylistButton" Width="300" Margin="3, 2" IsVisible="False" Click="LoadUserPlaylist_ButtonEvent">
                            <Button.Content>
                                <StackPanel Orientation="Horizontal">
                                    <Image Margin="15, 0, 0, 0" Width="30" Height="30" Source="/UI/Assets/Img/library.png" />
@@ -171,9 +171,13 @@
                </Slider>
                
            </Panel>
-           <Panel Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Width="800" Height="485">
-               
-               <ListBox ItemsSource="{Binding Sounds}">
+           <StackPanel Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Width="800" Height="485">
+               <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="0, 5">
+                   <Label VerticalContentAlignment="Center" Target="SearchBarTextBox"> Find your favorite music: </Label> 
+                   <TextBox Margin="10, 0" x:Name="SearchBarTextBox" Width="200" Watermark="Search..." KeyUp="OnSearchTextBoxKeyUp"/>
+               </StackPanel>
+                   
+               <ListBox ItemsSource="{Binding Sounds}" Height="445">
                    <ListBox.ItemTemplate>
                        <DataTemplate>
                            <Grid ColumnDefinitions="*,*, *,Auto,Auto">
@@ -189,7 +193,7 @@
                    </ListBox.ItemTemplate>
                </ListBox>
                
-           </Panel>
+           </StackPanel>
        </Grid>
     </Panel>
 </Window>

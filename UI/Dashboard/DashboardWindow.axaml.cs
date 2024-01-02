@@ -1,5 +1,6 @@
 using System;
 using Avalonia.Controls;
+using Avalonia.Input;
 using Avalonia.Interactivity;
 using music_player.Libs;
 using music_player.Models;
@@ -42,6 +43,12 @@ public partial class DashboardWindow : Window
     public void LoadAllSounds_ButtonEvent(object sender, RoutedEventArgs e)
     {
         ApplicationContext.Instance.LoadedPlaylist = PlaylistEnum.AllSounds;
+        new PlaylistController().ViewPlaylist();
+    }
+
+    public void LoadUserPlaylist_ButtonEvent(object sender, RoutedEventArgs e)
+    {
+        ApplicationContext.Instance.LoadedPlaylist = PlaylistEnum.Playlist;
         new PlaylistController().ViewPlaylist();
     }
 
@@ -117,6 +124,14 @@ public partial class DashboardWindow : Window
     {
         //change button icon
         PlayImage.Source = PlayButtonAction.Instance.UpdateIcon();
+    }
+    
+    private void OnSearchTextBoxKeyUp(object sender, KeyEventArgs e)
+    {
+        if (DataContext is MainViewModel viewModel)
+        {
+            viewModel.SearchTerm = ((TextBox)sender).Text;
+        }
     }
 
     public void Window_Closed(object sender, EventArgs e)

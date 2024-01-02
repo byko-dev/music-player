@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using music_player.Database;
 using music_player.Models;
 
@@ -44,5 +45,9 @@ public class PlaylistRepository : IPlaylistRepository
     {
         return context.Playlists.FirstOrDefault(p => p.OwnerId == ownerId && p.SoundId == soundId);
     }
-    
+
+    public List<Playlist> GetByOwnerId(int ownerId)
+    {
+        return context.Playlists.Where(p => p.OwnerId == ownerId).Include(s => s.Sound).ToList();
+    }
 }
