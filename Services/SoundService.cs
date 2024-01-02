@@ -43,6 +43,23 @@ public class SoundService
         return "Sound was uploaded successful!";
     }
 
+    public string Update(Sound sound)
+    {
+        Validator();
+
+        sound.Name = Title!;
+        sound.Author = Author!;
+        sound.Category = MusicGenre!;
+        
+        soundRepository.Update(sound);
+        return "Sound was update successful!";
+    }
+
+    public void Remove(Sound sound)
+    {
+        soundRepository.Delete(sound);
+    }
+    
     public List<Sound> GetAllSounds()
     {
         return soundRepository.All();

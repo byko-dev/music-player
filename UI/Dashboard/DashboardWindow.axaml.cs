@@ -7,6 +7,7 @@ using music_player.Services;
 using music_player.UI.AddSound;
 using music_player.UI.ErrorDialog;
 using music_player.UI.Login;
+using music_player.UI.SoundManage;
 
 namespace music_player.UI.Dashboard;
 
@@ -43,8 +44,28 @@ public partial class DashboardWindow : Window
         ApplicationContext.Instance.LoadedPlaylist = PlaylistEnum.AllSounds;
         new PlaylistController().ViewPlaylist();
     }
+
+    public void Modify_ButtonEvent(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            if (!(sender is Button button && button.CommandParameter is int Id))
+                throw new Exception("Invalid sound ID");
+            
+            Sound? sound = new SoundService().GetById(Id);
+
+            if (sound == null)
+                throw new Exception("Sound was not found!");
+            
+            new SoundManageWindow(sound).Show();
+        }
+        catch (Exception exception)
+        {
+            (new ErrorDialogWindow(exception.Message)).Show();
+        }
+    }
     
-    public void PlayButtonEvent(object sender, RoutedEventArgs e)
+    public void Play_ButtonEvent(object sender, RoutedEventArgs e)
     {
         try
         {

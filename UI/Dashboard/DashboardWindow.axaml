@@ -181,8 +181,9 @@
                                <TextBlock Text="{Binding Author}" Grid.Column="1" Margin="5"/>
                                <TextBlock Text="{Binding Category}" Grid.Column="2" Margin="5"/>
                                <Button Content="Play" Grid.Column="3" Margin="5" Classes="greenClass"
-                                       CommandParameter="{Binding Id}" Click="PlayButtonEvent" />
-                               <Button Content="Modify" Grid.Column="4" Margin="5" Classes="greenClass" />
+                                       CommandParameter="{Binding Id}" Click="Play_ButtonEvent" />
+                               <Button Content="Modify" Grid.Column="4" Margin="5" Classes="greenClass" 
+                                       CommandParameter="{Binding Id}" Click="Modify_ButtonEvent"/>
                            </Grid>
                        </DataTemplate>
                    </ListBox.ItemTemplate>

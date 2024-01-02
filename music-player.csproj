@@ -75,5 +75,7 @@
     <AvaloniaResource Include="UI\Assets\Img\play.png" />
     <AvaloniaResource Include="UI\Assets\Img\profile.png" />
     <AvaloniaResource Include="UI\Assets\Img\profile_neon.png" />
+    <AvaloniaResource Include="UI\Assets\Img\delete.png" />
+    <AvaloniaResource Include="UI\Assets\Img\upload.png" />
   </ItemGroup>
 </Project>

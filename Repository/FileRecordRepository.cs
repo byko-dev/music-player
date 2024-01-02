@@ -18,10 +18,25 @@ public class FileRecordRepository : IFileRecordRepository
         return context.Files.Find(id);
     }
 
-    public async Task<int> Add(FileRecord fileRecord)
+    public async Task<int> Add(FileRecord file)
     {
-        context.Files.Add(fileRecord);
+        context.Files.Add(file);
         await context.SaveChangesAsync();
-        return fileRecord.Id;
+        return file.Id;
+    }
+
+    public void Update(FileRecord file)
+    {
+        context.Files.Update(file);
+        context.SaveChanges();
+    }
+
+    public void Delete(FileRecord? file)
+    {
+        if (file != null)
+        {
+            context.Files.Remove(file);
+            context.SaveChanges();
+        }
     }
 }

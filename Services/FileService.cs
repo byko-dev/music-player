@@ -34,11 +34,30 @@ public class FileService
         return await fileRepository.Add(fileRecord);
     }
 
+    public void Update(FileRecord file)
+    {
+        if (string.IsNullOrEmpty(FilePath) || file.FileName.Equals(Path.GetFileName(FilePath)))
+            return;
+        
+        Validator();
+        
+        byte[] fileContent = File.ReadAllBytes(FilePath);
+
+        file.FileContent = fileContent;
+        file.FileName = Path.GetFileName(FilePath);
+        
+        fileRepository.Update(file);
+    }
+
+    public void Remove(FileRecord file)
+    {
+        fileRepository.Delete(file);
+    }
+    
     public FileRecord? GetById(int Id)
     {
         return fileRepository.GetById(Id);
     }
-
 
     private void Validator()
     {

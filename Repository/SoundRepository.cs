@@ -36,4 +36,19 @@ public class SoundRepository : ISoundRepository
     {
         return context.Sounds.Include(s => s.File).FirstOrDefault(s => s.Id == id);
     }
+
+    public void Update(Sound sound)
+    {
+        context.Sounds.Update(sound);
+        context.SaveChanges();
+    }
+
+    public void Delete(Sound? sound)
+    {
+        if (sound != null)
+        {
+            context.Sounds.Remove(sound);
+            context.SaveChanges();
+        }
+    }
 }
