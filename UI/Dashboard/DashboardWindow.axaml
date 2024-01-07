@@ -88,6 +88,15 @@
                            </Button.Content>
                        </Button>
                        
+                       <Button Width="300" Margin="3, 2" Click="ImportExportData_ButtonEvent">
+                           <Button.Content>
+                               <StackPanel Orientation="Horizontal">
+                                   <Image Margin="15, 0, 0, 0" Width="30" Height="30" Source="/UI/Assets/Img/export.png" />
+                                   <TextBlock Margin="10, 0, 0, 0" VerticalAlignment="Center" Text="Import / Export Data" />
+                               </StackPanel>
+                           </Button.Content>
+                       </Button>
+                       
                        <Button Width="300" Margin="3, 2" Click="OnLogoutButtonClick"> 
                            <Button.Content>
                                <StackPanel Orientation="Horizontal">

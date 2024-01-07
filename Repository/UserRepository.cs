@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using music_player.Database;
@@ -30,5 +31,10 @@ public class UserRepository : IUserRepository
         return context.Users.Include(s => s.Sounds)
             .Include(p => p.Playlists)
             .FirstOrDefault(u => u.Username == username);
+    }
+
+    public List<User> All()
+    {
+        return context.Users.ToList();
     }
 }

@@ -43,11 +43,21 @@ public class PlaylistRepository : IPlaylistRepository
 
     public Playlist? GetByOwnerIdAndSoundId(int ownerId, int soundId)
     {
-        return context.Playlists.FirstOrDefault(p => p.OwnerId == ownerId && p.SoundId == soundId);
+        return context.Playlists.FirstOrDefault(p => p.UserId == ownerId && p.SoundId == soundId);
     }
 
     public List<Playlist> GetByOwnerId(int ownerId)
     {
-        return context.Playlists.Where(p => p.OwnerId == ownerId).Include(s => s.Sound).ToList();
+        return context.Playlists.Where(p => p.UserId == ownerId).Include(s => s.Sound).ToList();
+    }
+
+    public List<Playlist> All()
+    {
+        return context.Playlists.ToList();
+    }
+
+    public Playlist? GetById(int Id)
+    {
+        return context.Playlists.FirstOrDefault(s => s.Id == Id);
     }
 }

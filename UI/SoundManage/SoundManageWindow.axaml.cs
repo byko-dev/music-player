@@ -102,7 +102,7 @@ public partial class SoundManageWindow : Window
         SetDefaultComboBoxValue();
         SetStyleForAddToPlaylistButton();
         
-        if (!ApplicationContext.Instance.IsUserLogged() || sound.OwnerId != ApplicationContext.Instance.LoggedUser!.Id)
+        if (!ApplicationContext.Instance.IsUserLogged() || sound.UserId != ApplicationContext.Instance.LoggedUser!.Id)
         {
             Title.IsReadOnly = true;
             Author.IsReadOnly = true;

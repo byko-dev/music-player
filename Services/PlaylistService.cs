@@ -4,6 +4,7 @@ using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
 using music_player.Libs;
 using music_player.Models;
+using music_player.Models.Export;
 using music_player.Repository;
 
 namespace music_player.Services;
@@ -34,21 +35,56 @@ public class PlaylistService
     public List<Sound> GetUserPlaylist()
     {
         List<Playlist> soundsOnPlaylist = playlistRepository.GetByOwnerId(ApplicationContext.Instance.LoggedUser!.Id);
-    
+
         return soundsOnPlaylist.Select(playlist => playlist.Sound).ToList();
     }
-    
+
+    public List<Playlist> GetAllPlaylists()
+    {
+        return playlistRepository.All();
+    }
+
     public void Add()
     {
-        playlistRepository.Add(new Playlist
+        Add(new Playlist
         {
-            OwnerId = ApplicationContext.Instance.LoggedUser!.Id,
+            UserId = ApplicationContext.Instance.LoggedUser!.Id,
             User = ApplicationContext.Instance.LoggedUser,
             Sound = Sound,
             SoundId = Sound.Id
         });
     }
 
+    public void Import(PlaylistRaw playlistRaw)
+    {
+        if (GetById(playlistRaw.Id) != null)
+            throw new Exception("Playlist already exists!");
+        
+        Sound? sound = (new SoundService()).GetById(playlistRaw.SoundId);
+
+        if (sound == null)
+            throw new Exception("Sound with provided id doesnt exists!");
+
+        User? user = (new UserService()).GetById(playlistRaw.UserId);
+
+        if (user == null)
+            throw new Exception("User with provided id doesnt exists!");
+
+        Add(new Playlist()
+        {
+            Id = playlistRaw.Id,
+            Sound = sound,
+            SoundId = sound.Id,
+            User = user,
+            UserId = user.Id
+        });
+    }
+
+    public Playlist? GetById(int id)
+    {
+        return playlistRepository.GetById(id);
+    }
+    
     public void Remove()
     {
         Playlist? playlist =
@@ -69,5 +105,8 @@ public class PlaylistService
         return playlistRepository.GetByOwnerIdAndSoundId(ApplicationContext.Instance.LoggedUser!.Id, Sound.Id) != null;
     }
     
-    
+    private void Add(Playlist playlist)
+    {
+        playlistRepository.Add(playlist);
+    }
 }

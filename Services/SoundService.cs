@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
 using music_player.Libs;
 using music_player.Models;
+using music_player.Models.Export;
 using music_player.Repository;
 
 namespace music_player.Services;
@@ -30,10 +31,10 @@ public class SoundService
     {
         Validator();
         
-        soundRepository.Add(new Sound()
+        Add(new Sound()
         {
             FileId = FileId,
-            OwnerId = ApplicationContext.Instance.LoggedUser!.Id,
+            UserId = ApplicationContext.Instance.LoggedUser!.Id,
             Name = Title!,
             Author = Author!,
             Category = MusicGenre!,
@@ -42,6 +43,40 @@ public class SoundService
         
         return "Sound was uploaded successful!";
     }
+
+    public void Import(SoundRaw soundRaw)
+    {
+        if (GetById(soundRaw.Id) != null)
+            throw new Exception("Sound already exists!");
+        
+        FileRecord? fileRecord = (new FileService()).GetById(soundRaw.FileId);
+
+        if (fileRecord == null)
+            throw new Exception("File with provided id doesnt exists!");
+
+        User? user = (new UserService()).GetById(soundRaw.UserId);
+
+        if (user == null)
+            throw new Exception("User with provided id doesnt exists!");
+
+        Add(new Sound()
+        {
+            Id = soundRaw.Id,
+            Name = soundRaw.Name,
+            Category = soundRaw.Category,
+            Author = soundRaw.Author,
+            File = fileRecord,
+            FileId = soundRaw.FileId,
+            User = user,
+            UserId = user.Id,
+        });
+    }
+    
+    public void Add(Sound sound)
+    {
+        soundRepository.Add(sound);
+    }
+    
 
     public string Update(Sound sound)
     {

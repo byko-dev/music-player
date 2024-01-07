@@ -7,6 +7,7 @@ using music_player.Models;
 using music_player.Services;
 using music_player.UI.AddSound;
 using music_player.UI.ErrorDialog;
+using music_player.UI.Import;
 using music_player.UI.Login;
 using music_player.UI.SoundManage;
 
@@ -52,6 +53,11 @@ public partial class DashboardWindow : Window
         new PlaylistController().ViewPlaylist();
     }
 
+    public void ImportExportData_ButtonEvent(object sender, RoutedEventArgs e)
+    {
+        new ImportWindow().Show();
+    }
+    
     public void Modify_ButtonEvent(object sender, RoutedEventArgs e)
     {
         try

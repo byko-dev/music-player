@@ -10,4 +10,6 @@ public interface IPlaylistRepository
     void DeleteBySoundId(int soundId);
     Playlist? GetByOwnerIdAndSoundId(int ownerId, int soundId);
     List<Playlist> GetByOwnerId(int ownerId);
+    List<Playlist> All();
+    Playlist? GetById(int Id);
 }

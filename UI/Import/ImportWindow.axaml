@@ -1,0 +1,106 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:components="clr-namespace:music_player.UI.Components"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="300"
+        Width="450" 
+        MinHeight="250"
+        MaxHeight="560"
+        SizeToContent="Height"
+        x:Class="music_player.UI.Import.ImportWindow"
+        Title="Music Player - Register"
+        Icon="/UI/Assets/Img/icon.png"
+        Background="Transparent"
+        TransparencyLevelHint="AcrylicBlur"
+        ExtendClientAreaToDecorationsHint="True"
+        CanResize="False">
+    
+    <Panel>
+        <components:BackgroundBlurComponent />
+        
+        <Label Margin="5, 5, 0,0" FontSize="15">Music Player - Export / Import Data </Label>
+        
+        <TabControl HorizontalAlignment="Center"
+                        HorizontalContentAlignment="Center"
+                        Margin="0 50, 0, 0"
+                        Width="450"
+                        TabStripPlacement="Top">
+                <TabItem Header="Import">
+                    <StackPanel Orientation="Vertical" Spacing="8">
+                        
+                        <Label Target="ImportComboBox" Margin="0, 15, 0, 0" > Import Table: </Label> 
+                        <ComboBox Width="200" Margin="0, 4, 0, 0" PlaceholderText="Pick an Table to Import" x:Name="ImportComboBox">
+                            <ComboBoxItem>Playlists</ComboBoxItem>
+                            <ComboBoxItem>Sounds</ComboBoxItem>
+                            <ComboBoxItem>Users</ComboBoxItem>
+                        </ComboBox>
+                        
+                        <Label Margin="0, 15, 0, 0" >Import Guide: </Label> 
+                        <Label Margin="10, 0, 0, 0"> 1. Import 'Users' Table </Label> 
+                        <Label Margin="10, 0, 0, 0"> 2. Import 'Files' Table (Unsupported)</Label> 
+                        <Label Margin="10, 0, 0, 0"> 3. Import 'Sounds' Table </Label> 
+                        <Label Margin="10, 0, 0, 0"> 4. Import 'Playlists' Table </Label> 
+            
+                        
+                        <TextBox x:Name="FilePathBox" IsReadOnly="True" Watermark="File path" Margin="0, 15, 0, 0"   />
+                        
+                        <Label HorizontalAlignment="Center" VerticalAlignment="Center"
+                               x:Name="ImportMessage" Content="" />
+                        
+                        <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 20">
+                            <Button x:Name="ChangeFileButton" Click="OnFileSelectClick_ButtonEvent"
+                                    Margin="0, 0, 15, 0" 
+                                    HorizontalContentAlignment="Center"
+                                    KeyboardNavigation.IsTabStop="False">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="/UI/Assets/Img/upload.png" Width="16" Height="16" Margin="0,0,5,0"/>
+                                    <TextBlock Text="Choose File" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+                            
+                            <Button x:Name="ImportButton" Click="ImportTable_ButtonEvent"
+                                    HorizontalAlignment="Center"
+                                    HorizontalContentAlignment="Center"
+                                    BorderBrush="{DynamicResource SystemAccentColor}" 
+                                    KeyboardNavigation.IsTabStop="False">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="/UI/Assets/Img/export.png" Width="16" Height="16" Margin="0,0,5,0"/>
+                                    <TextBlock Text="Import Table" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                        
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Export">
+                    <StackPanel Orientation="Vertical" Spacing="8">
+                        
+                        <Label Target="ExportComboBox" Margin="0, 15, 0, 0" > Export Table: </Label> 
+                        <ComboBox Width="200" Margin="0, 4, 0, 0" PlaceholderText="Pick an Table to Export" x:Name="ExportComboBox">
+                            <ComboBoxItem>Playlists</ComboBoxItem>
+                            <ComboBoxItem>Sounds</ComboBoxItem>
+                            <ComboBoxItem>Users</ComboBoxItem>
+                        </ComboBox>
+                        
+                        <Button x:Name="ExportButton" Click="ExportTable_ButtonEvent"
+                                Margin="0, 30" 
+                                HorizontalAlignment="Center"
+                                HorizontalContentAlignment="Center"
+                                BorderBrush="{DynamicResource SystemAccentColor}" 
+                                KeyboardNavigation.IsTabStop="False">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/UI/Assets/Img/export.png" Width="16" Height="16" Margin="0,0,5,0"/>
+                                <TextBlock Text="Export Table" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                        
+                    </StackPanel>
+                    
+                    
+                    
+                </TabItem>
+        </TabControl>
+        
+    </Panel>
+</Window>

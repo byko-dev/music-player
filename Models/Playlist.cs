@@ -1,10 +1,9 @@
+using music_player.Models.Export;
+
 namespace music_player.Models;
 
-public class Playlist
+public class Playlist : PlaylistRaw
 {
-    public int Id { get; set; }
-    public int OwnerId { get; set; }
     public User User { get; set; }
-    public int SoundId { get; set; }
     public Sound Sound { get; set; }
 }
