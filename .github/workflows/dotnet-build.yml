@@ -29,7 +29,7 @@ jobs:
       run: dotnet build --configuration Release --no-restore
 
     - name: Publish
-      run: dotnet publish --configuration Release --no-restore --runtime ${{ matrix.runtime }} --self-contained true --output ./publish --p:PublishSingleFile=true --p:PublishTrimmed=true
+      run: dotnet publish music-player.csproj --configuration Release --no-restore --runtime ${{ matrix.runtime }} --self-contained true --output ./publish --p:PublishSingleFile=true --p:PublishTrimmed=true
       env:
         DOTNET_CLI_TELEMETRY_OPTOUT: 1
         runtime: ${{ startsWith(matrix.os, 'windows') && 'win-x64' || 'linux-x64' }}
