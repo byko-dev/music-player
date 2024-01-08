@@ -32,7 +32,6 @@ jobs:
       run: dotnet publish --configuration Release --no-restore --runtime ${{ matrix.runtime }} --self-contained true --output ./publish --p:PublishSingleFile=true --p:PublishTrimmed=true
       env:
         DOTNET_CLI_TELEMETRY_OPTOUT: 1
-      with:
         runtime: ${{ startsWith(matrix.os, 'windows') && 'win-x64' || 'linux-x64' }}
 
     - name: Upload Artifacts
