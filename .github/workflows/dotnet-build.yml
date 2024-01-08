@@ -1,0 +1,42 @@
+name: Build and Publish .NET Application for Windows & Linux
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-publish:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        dotnet-version: ['6.0.x']
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: ${{ matrix.dotnet-version }}
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+
+    - name: Publish
+      run: dotnet publish --configuration Release --no-restore --runtime ${{ matrix.runtime }} --self-contained true --output ./publish --p:PublishSingleFile=true --p:PublishTrimmed=true
+      env:
+        DOTNET_CLI_TELEMETRY_OPTOUT: 1
+      with:
+        runtime: ${{ startsWith(matrix.os, 'windows') && 'win-x64' || 'linux-x64' }}
+
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: published-app-${{ matrix.os }}
+        path: ./publish

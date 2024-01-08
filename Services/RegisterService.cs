@@ -30,7 +30,7 @@ public class RegisterService
             CreatedAt = DateTime.Now
         });
 
-        return "success";  
+        return "Your account has been created successfully!";  
     }
 
     private void DataValidation()
