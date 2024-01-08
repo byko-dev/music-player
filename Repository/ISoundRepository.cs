@@ -7,7 +7,6 @@ public interface ISoundRepository
 {
     List<Sound> All();
     void Add(Sound sound);
-    List<Sound> GetByOwnerId(int ownerId);
     Sound? GetById(int id);
     void Update(Sound sound);
     void Delete(Sound? sound);

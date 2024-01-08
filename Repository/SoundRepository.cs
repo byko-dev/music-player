@@ -26,12 +26,7 @@ public class SoundRepository : ISoundRepository
         context.Sounds.Add(sound);
         context.SaveChanges();
     }
-
-    public List<Sound> GetByOwnerId(int ownerId)
-    {
-        throw new System.NotImplementedException();
-    }
-
+    
     public Sound? GetById(int id)
     {
         return context.Sounds.Include(s => s.File).FirstOrDefault(s => s.Id == id);
