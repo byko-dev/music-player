@@ -37,5 +37,5 @@ jobs:
     - name: Upload Artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: published-app-${{ matrix.os }}
+        name: published-app-${{ matrix.os }}-${{ github.sha }}
         path: ./publish
