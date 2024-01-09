@@ -129,7 +129,10 @@ public partial class DashboardWindow : Window
     public void TogglePlayButtonClick(object sender, RoutedEventArgs e)
     {
         //change button icon
-        PlayImage.Source = PlayButtonAction.Instance.UpdateIcon();
+        PlayStatus status = PlayButtonAction.Instance.UpdateIcon();
+
+        PlayImage.IsVisible = status == PlayStatus.Play;
+        PauseImage.IsVisible = status == PlayStatus.Pause;
     }
     
     private void OnSearchTextBoxKeyUp(object sender, KeyEventArgs e)
@@ -172,8 +175,10 @@ public partial class DashboardWindow : Window
 
         if (sound == null)
             throw new Exception("Sound was not found!");
-            
-        PlayImage.Source = PlayButtonAction.Instance.SetPlaying();
+
+        PlayButtonAction.Instance.IsPlaying = true;
+        PlayImage.IsVisible = false;
+        PauseImage.IsVisible = true;
         PlayingNowLabel.Text = (sound.Name + " - " + sound.Author);
             
         ApplicationContext.Instance.PlayingSoundId = sound.Id;

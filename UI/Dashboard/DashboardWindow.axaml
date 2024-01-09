@@ -124,6 +124,7 @@
                        <Button.Content>
                            <StackPanel Orientation="Horizontal">
                                <Image x:Name="PlayImage" Width="22" Height="22"  Source="/UI/Assets/Img/play.png" />
+                               <Image x:Name="PauseImage" Width="22" Height="22" IsVisible="False"  Source="/UI/Assets/Img/pause.png" />
                            </StackPanel>
                        </Button.Content>
                    </Button>

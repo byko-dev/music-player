@@ -1,4 +1,3 @@
-using Avalonia.Media.Imaging;
 namespace music_player.Libs;
 
 public class PlayButtonAction
@@ -6,8 +5,6 @@ public class PlayButtonAction
     private static PlayButtonAction instance;
     private static readonly object lockObject = new object();
     private bool _isPlaying = false;
-    private const string PLAY_ICON = "avares::/../../../../UI/Assets/Img/play.png";
-    private const string PAUSE_ICON = "avares::/../../../../UI/Assets/Img/pause.png";
     
     public static PlayButtonAction Instance
     {
@@ -30,18 +27,11 @@ public class PlayButtonAction
         set { _isPlaying = value; }
     }
     
-    public Bitmap UpdateIcon()
+    public PlayStatus UpdateIcon()
     {
         _isPlaying = !_isPlaying;
-        var pathData = _isPlaying ? PAUSE_ICON : PLAY_ICON;
         ButtonAction();
-        return new Bitmap(pathData);  
-    }
-
-    public Bitmap SetPlaying()
-    {
-        _isPlaying = true;
-        return new Bitmap(PAUSE_ICON);  
+        return _isPlaying ? PlayStatus.Pause : PlayStatus.Play;  
     }
     
     private void ButtonAction()

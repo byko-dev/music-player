@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AssemblyName>Music-Player</AssemblyName>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
   </PropertyGroup>
 
@@ -65,21 +66,6 @@
 
 
   <ItemGroup>
-    <AvaloniaResource Include="UI\Assets\Img\add.png" />
-    <AvaloniaResource Include="UI\Assets\Img\back.png" />
-    <AvaloniaResource Include="UI\Assets\Img\global_lib.png" />
-    <AvaloniaResource Include="UI\Assets\Img\icon.png" />
-    <AvaloniaResource Include="UI\Assets\Img\library.png" />
-    <AvaloniaResource Include="UI\Assets\Img\logout.png" />
-    <AvaloniaResource Include="UI\Assets\Img\my_sounds.png" />
-    <AvaloniaResource Include="UI\Assets\Img\next.png" />
-    <AvaloniaResource Include="UI\Assets\Img\pause.png" />
-    <AvaloniaResource Include="UI\Assets\Img\play.png" />
-    <AvaloniaResource Include="UI\Assets\Img\profile.png" />
-    <AvaloniaResource Include="UI\Assets\Img\profile_neon.png" />
-    <AvaloniaResource Include="UI\Assets\Img\delete.png" />
-    <AvaloniaResource Include="UI\Assets\Img\upload.png" />
-    <AvaloniaResource Include="UI\Assets\Img\export.png" />
-    <AvaloniaResource Include="UI\Assets\Img\import.png" />
+    <AvaloniaResource Include="UI\Assets\Img\**" />
   </ItemGroup>
 </Project>
