@@ -37,20 +37,41 @@ public partial class DashboardWindow : Window
 
     public void LoadUserUploadedSounds_ButtonEvent(object sender, RoutedEventArgs e)
     {
-        ApplicationContext.Instance.LoadedPlaylist = PlaylistEnum.UploadedSounds;
-        new PlaylistController().ViewPlaylist();
+        try
+        {
+            ApplicationContext.Instance.LoadedPlaylist = PlaylistEnum.UploadedSounds;
+            new PlaylistController().ViewPlaylist();
+        }
+        catch (Exception exception)
+        {
+            
+        }
     }
 
     public void LoadAllSounds_ButtonEvent(object sender, RoutedEventArgs e)
     {
-        ApplicationContext.Instance.LoadedPlaylist = PlaylistEnum.AllSounds;
-        new PlaylistController().ViewPlaylist();
+        try
+        {
+            ApplicationContext.Instance.LoadedPlaylist = PlaylistEnum.AllSounds;
+            new PlaylistController().ViewPlaylist();
+        }
+        catch (Exception exception)
+        {
+            (new ErrorDialogWindow(exception.Message)).Show();
+        }
     }
 
     public void LoadUserPlaylist_ButtonEvent(object sender, RoutedEventArgs e)
     {
-        ApplicationContext.Instance.LoadedPlaylist = PlaylistEnum.Playlist;
-        new PlaylistController().ViewPlaylist();
+        try
+        {
+            ApplicationContext.Instance.LoadedPlaylist = PlaylistEnum.Playlist;
+            new PlaylistController().ViewPlaylist();
+        }
+        catch (Exception exception)
+        {
+            (new ErrorDialogWindow(exception.Message)).Show();
+        }
     }
 
     public void ImportExportData_ButtonEvent(object sender, RoutedEventArgs e)

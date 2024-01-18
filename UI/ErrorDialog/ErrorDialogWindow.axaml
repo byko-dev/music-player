@@ -22,7 +22,7 @@
         
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10, 40, 10, 10" Width="430">
                         <TextBlock TextWrapping="Wrap"  x:Name="ErrorMessageContent" />
-                        <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Close"  Margin="10"  />
+                        <Button HorizontalAlignment="Right" Click="CloseWindow_ButtonEvent" VerticalAlignment="Bottom" Content="Close"  Margin="10"  />
                 </StackPanel>
                 
         </Panel>

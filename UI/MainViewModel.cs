@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Timers;
 using music_player.Libs;
 using music_player.Models;
+using music_player.UI.ErrorDialog;
 
 namespace music_player.UI;
 
@@ -81,11 +82,18 @@ public class MainViewModel : INotifyPropertyChanged
     
     public MainViewModel()
     {
-        LoadSounds();
+        try
+        {
+            LoadSounds();
         
-        updateSliderTimer = new Timer(300); 
-        updateSliderTimer.Elapsed += UpdateSlider;
-        updateSliderTimer.Start();
+            updateSliderTimer = new Timer(300); 
+            updateSliderTimer.Elapsed += UpdateSlider;
+            updateSliderTimer.Start();
+        }
+        catch (Exception e)
+        {
+            new ErrorDialogWindow(e.Message).Show();
+        }
     }
 
     private void LoadSounds()
@@ -96,6 +104,8 @@ public class MainViewModel : INotifyPropertyChanged
     
     private void FilterSounds()
     {
+        if(Sounds == null) return;
+        
         if (string.IsNullOrEmpty(SearchTerm))
         {
             Sounds = new ObservableCollection<Sound>(OriginalSounds);
