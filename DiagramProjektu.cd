@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="music_player.Database.DatabaseConnectionContext">
+    <Position X="19" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQACAAAQAAAAAAAAAAAAAAEAAAAAAABAAAAAAAAIA=</HashCode>
+      <FileName>Database\DatabaseConnectionContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.Helpers.PasswordHasher">
+    <Position X="28.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAQAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\PasswordHasher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.Libs.ApplicationContext">
+    <Position X="15.5" Y="5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>ABACAACAAAAAACAAAAAAEAAAAABAAAAARAAAAAAACAA=</HashCode>
+      <FileName>Libs\ApplicationContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.Libs.AudioPlayer">
+    <Position X="4.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAkAAAAACAEAAAQCAAAIAAAAAAAAgCA4AAAAAAEAAA=</HashCode>
+      <FileName>Libs\AudioPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.Libs.PlayButtonAction">
+    <Position X="24.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAABAAAAARBAAAAQAAAgAAAAAA=</HashCode>
+      <FileName>Libs\PlayButtonAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.Libs.PlaylistController">
+    <Position X="8.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABBAAAAAABAAAAAABAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Libs\PlaylistController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="musicplayer.Migrations.UserTable">
+    <Position X="23" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20231224132501_UserTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="musicplayer.Migrations.FileTable">
+    <Position X="19.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20231229173916_FileTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="musicplayer.Migrations.SoundsTable">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20231229180358_SoundsTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="musicplayer.Migrations.PlaylistTable">
+    <Position X="21" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20231231120346_PlaylistTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="musicplayer.Migrations.Migration100">
+    <Position X="23" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20240103230219_Migration-1.0.0.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="musicplayer.Migrations.DatabaseConnectionContextModelSnapshot">
+    <Position X="13.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Migrations\DatabaseConnectionContextModelSnapshot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.Models.Export.PlaylistRaw">
+    <Position X="6.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAQAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Export\PlaylistRaw.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.Models.Export.SoundRaw">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAgAAAAAwAAAAAAAAAAAAAAAIACAA=</HashCode>
+      <FileName>Models\Export\SoundRaw.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.Models.Export.UserRaw">
+    <Position X="12" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAASAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Export\UserRaw.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.Models.FileRecord">
+    <Position X="21" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAIAAAAAAAAAAAAAAAAABAAAAABAAAA=</HashCode>
+      <FileName>Models\FileRecord.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.Models.Playlist">
+    <Position X="6.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Models\Playlist.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.Models.Sound">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Sound.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.Models.User">
+    <Position X="11.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.Repository.FileRecordRepository" BaseTypeListCollapsed="true">
+    <Position X="17.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYCAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Repository\FileRecordRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="music_player.Repository.PlaylistRepository" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="3" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAICCBAAAEAAAAAAAAAAAAAAAAEAAAAAAIAAAAAAAIA=</HashCode>
+      <FileName>Repository\PlaylistRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="music_player.Repository.SoundRepository" BaseTypeListCollapsed="true">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYCAAAAAAAAAAAAAAAAAAAAAAEAAAAAAIAAAAAAAIA=</HashCode>
+      <FileName>Repository\SoundRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="music_player.Repository.UserRepository" BaseTypeListCollapsed="true">
+    <Position X="10" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAAAAAAAAAAAAAAAAAAACAAAAAAAAAIAAAAAAAIA=</HashCode>
+      <FileName>Repository\UserRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.359" Collapsed="true" />
+  </Class>
+  <Class Name="music_player.Services.ExportService">
+    <Position X="15.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAQAAAAA=</HashCode>
+      <FileName>Services\ExportService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.Services.FileService">
+    <Position X="17.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gCQAAAAAAAAAAAAAAAAABAAAAAQAAAAAgABAAAAAAIA=</HashCode>
+      <FileName>Services\FileService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.Services.ImportService">
+    <Position X="15.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAIAAAAAAAAAAAAAAAAABAAQAAAAQ=</HashCode>
+      <FileName>Services\ImportService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.Services.LoginService">
+    <Position X="27.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAQAAAAAAAAAAAAACAAAAAIAIAAA=</HashCode>
+      <FileName>Services\LoginService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.Services.PlaylistService">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIQAAAAAAQAAAAAIAABBAAAAAAAAQAEBAAAAAAAAoA=</HashCode>
+      <FileName>Services\PlaylistService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.Services.RegisterService">
+    <Position X="19.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAQAAAAAAAAIAAAACAAAACIAAAAA=</HashCode>
+      <FileName>Services\RegisterService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.Services.SoundService">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAEAAoAAEBAIAAAAAAAAAgAAAAAIAAIQ=</HashCode>
+      <FileName>Services\SoundService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.Services.UserService">
+    <Position X="12" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAIEAAIA=</HashCode>
+      <FileName>Services\UserService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.UI.AddSound.AddSoundWindow">
+    <Position X="2.25" Y="5.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAIAABAAAAAQAA=</HashCode>
+      <FileName>UI\AddSound\AddSoundWindow.axaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.App">
+    <Position X="23" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UI\App\App.axaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.Program">
+    <Position X="29" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAABAAAAAAAAAAAAQAADAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.UI.Components.BackgroundBlurComponent">
+    <Position X="13.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UI\Components\BackgroundBlurComponent.axaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.UI.Dashboard.DashboardWindow">
+    <Position X="25" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAIAQgIQAAgAAgGAIAAAEGgEAAAAAAAAAA=</HashCode>
+      <FileName>UI\Dashboard\DashboardWindow.axaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.UI.ErrorDialog.ErrorDialogWindow">
+    <Position X="11.75" Y="7" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UI\ErrorDialog\ErrorDialogWindow.axaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.UI.Import.ImportWindow">
+    <Position X="26.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAQAAAAAAAAAAQAABAAAAAQAA=</HashCode>
+      <FileName>UI\Import\ImportWindow.axaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.UI.Login.LoginWindow">
+    <Position X="23" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAgAAAAAAAAAAAAAAAAAACAAAAAAAgAQAA=</HashCode>
+      <FileName>UI\Login\LoginWindow.axaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.UI.Register.RegisterWindow">
+    <Position X="27.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAACAQAAAAAAAQAA=</HashCode>
+      <FileName>UI\Register\RegisterWindow.axaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.UI.SoundManage.SoundManageWindow">
+    <Position X="20.75" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAEAAACAAYACAAAAEAAAAAABAAAAAYAA=</HashCode>
+      <FileName>UI\SoundManage\SoundManageWindow.axaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="music_player.UI.MainViewModel" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAEAAAAAAQAAAAAIAAAABAEgEAEAAAIBBgAAAQAEAA=</HashCode>
+      <FileName>UI\MainViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="music_player.Repository.IFileRecordRepository">
+    <Position X="17.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Repository\IFileRecordRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="music_player.Repository.IPlaylistRepository">
+    <Position X="8.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIACBAAAEAAAAAAAAAAAAAAAAEAAAAAAIAAAAAAAIA=</HashCode>
+      <FileName>Repository\IPlaylistRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="music_player.Repository.ISoundRepository">
+    <Position X="2.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAIAAAAAAAIA=</HashCode>
+      <FileName>Repository\ISoundRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="music_player.Repository.IUserRepository">
+    <Position X="10.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAACAAAAAAAAAIAAAAAAAIA=</HashCode>
+      <FileName>Repository\IUserRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="music_player.Libs.PlaylistEnum">
+    <Position X="10" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Libs\PlaylistEnum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="music_player.Libs.PlayStatus">
+    <Position X="10" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Libs\PlayStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

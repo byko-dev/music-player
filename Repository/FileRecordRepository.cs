@@ -12,7 +12,7 @@ public class FileRecordRepository : IFileRecordRepository
     {
         this.context = context;
     }
-    
+
     public FileRecord? GetById(int id)
     {
         return context.Files.Find(id);
