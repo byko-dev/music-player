@@ -1,0 +1,200 @@
+% ********** Rozdział 1 **********
+\chapter{Opis założeń projektu}
+\section{Cele projetu}
+
+Projekt "Music Player" ma na celu stworzenie nowoczesnej aplikacji do odtwarzania muzyki, która będzie funkcjonować zarówno na systemach Windows, jak i Linux. Kluczowym zadaniem jest zapewnienie spójnego i intuicyjnego interfejsu użytkownika, zrealizowanego przy użyciu frameworka Avalonia, co pozwoli na zachowanie jednolitej estetyki i funkcjonalności na różnych platformach. Aplikacja zostanie napisana w języku C\# z wykorzystaniem środowiska .NET 6, co zagwarantuje jej nowoczesność oraz wysoką wydajność.
+
+Istotną częścią projektu jest wdrożenie systemu logowania, który nie tylko zwiększy bezpieczeństwo i prywatność użytkowników, ale także umożliwi personalizację aplikacji. Dzięki temu użytkownicy będą mogli lepiej zarządzać swoimi playlistami i preferencjami muzycznymi.
+
+Projekt zakłada również opracowanie skutecznego systemu zarządzania danymi baz danych SQL. To umożliwi efektywne przechowywanie informacji o utworach muzycznych, artystach i playlistach. Aplikacja będzie zawierać pełny zestaw funkcji CRUD, co pozwoli użytkownikom na tworzenie, czytanie, aktualizowanie i usuwanie danych w prosty i intuicyjny sposób. Zarządzanie tymi funkcjami zostanie zrealizowane przez starannie zaprojektowaną hierarchię klas, co zapewni logiczną organizację i łatwość w rozwijaniu aplikacji. Znaczącą częścią projektu będzie również rozbudowana obsługa wyjątków oraz mechanizmy walidacji danych, które zagwarantują stabilność aplikacji oraz poprawność przetwarzanych informacji.
+
+Podsumowując, głównym celem projektu "Music Player" jest stworzenie użytecznej, bezpiecznej i przyjaznej dla użytkownika aplikacji do odtwarzania muzyki, która będzie dostosowana do potrzeb użytkowników na różnych platformach, jednocześnie oferując zaawansowane opcje zarządzania zawartością muzyczną.
+
+\section{Założenia projektu}
+
+\begin{itemize}
+\item Wieloplatformowość: Aplikacja będzie kompatybilna zarówno z systemami Windows, jak i Linux.
+\item Technologie: Wykorzystanie języka programowania C\# oraz frameworka .NET 6.
+\item Interfejs Użytkownika: Stworzenie interfejsu graficznego z użyciem Avalonia, zapewniającego spójność i intuicyjność obsługi na różnych platformach.
+\item Baza Danych: Początkowe użycie plików tekstowych jako bazy danych, z możliwością rozbudowy do systemu bazodanowego takiego jak SQL.
+\item Zarządzanie Danymi: Implementacja funkcjonalności CRUD (Create, Read, Update, Delete) 
+\item Walidacja Danych: Weryfikacja poprawności danych wejściowych.
+\item Obsługa Wyjątków: Zapewnienie mechanizmów do obsługi błędów i wyjątków w aplikacji.
+\item Rozszerzalność: Możliwość rozbudowy aplikacji o dodatkowe funkcje, takie jak importowanie i eksportowanie danych z plików csv.
+\item Repozytorium Kodu: Utrzymanie i zarządzanie kodem źródłowym w publicznym repozytorium, np. na GitHub.
+\end{itemize}
+
+
+\section{Wymagania funkcjonale i niefunkcjonalne}
+
+\noindent \textbf{Wymagania funkcjonalne:}
+
+\begin{itemize}
+\item Wieloplatformowość: Aplikacja będzie kompatybilna zarówno z systemami Windows, jak i Linux.
+\item Technologie: Wykorzystanie języka programowania C\# oraz frameworka .NET 6.
+\item Interfejs Użytkownika: Stworzenie interfejsu graficznego z użyciem Avalonia, zapewniającego spójność i intuicyjność obsługi na różnych platformach.
+\item Baza Danych: Aplikacja zapewni zaawansowane możliwości zarządzania danymi w bazie SQL, umożliwiając efektywną organizację, aktualizację oraz optymalizację przechowywanych informacji.
+\item Zarządzanie Danymi: Implementacja funkcjonalności CRUD (Create, Read, Update, Delete) 
+\item Walidacja Danych: Weryfikacja poprawności danych wejściowych.
+\item Obsługa Wyjątków: Zapewnienie mechanizmów do obsługi błędów i wyjątków w aplikacji.
+\item Rozszerzalność: Możliwość rozbudowy aplikacji o dodatkowe funkcje, takie jak importowanie i eksportowanie danych z plików csv.
+\item Repozytorium Kodu: Utrzymanie i zarządzanie kodem źródłowym w publicznym repozytorium, np. na GitHub.
+\item Migracja danych: Aplikacja umożliwi efektywną migrację danych z istniejących baz SQL do nowego systemu, wspierając bezproblemowy transfer danych.
+\end{itemize}
+
+\noindent \textbf{Wymagania niefunkcjonalne:}
+
+\begin{itemize}
+\item Wydajność: Aplikacja powinna szybko reagować na działania użytkownika i efektywnie zarządzać zasobami systemu.
+\item Kompatybilność: Działanie na różnych systemach operacyjnych (Windows, Linux) bez konieczności modyfikacji.
+\item Bezpieczeństwo: Zabezpieczenie danych użytkownika i systemu przed nieautoryzowanym dostępem.
+\item Skalowalność: Możliwość rozbudowy aplikacji o nowe funkcje bez wpływu na istniejącą funkcjonalność.
+\item Łatwość Użytkowania: Intuicyjny i prosty w obsłudze interfejs użytkownika.
+\item Stabilność: Aplikacja powinna być stabilna i wolna od krytycznych błędów.
+\item Dostępność: Łatwość dostępu do aplikacji i jej funkcji dla różnych grup użytkowników.
+\item Dokumentacja: Zapewnienie kompletnej i zrozumiałej dokumentacji użytkownika i technicznej.
+\end{itemize}
+
+% \noindent \textbf{Wymagania funkcjonalne}
+% \begin{itemize}
+%     \item opisują funkcje (czynności, operacje, usługi) wykonywane przez system
+%     \item Często stosowany sposób opisu wymagań – język naturalny
+%     \item Liczba wymagań funkcjonalnych może być bardzo duża; konieczne jest pewnego rodzaju uporządkowanie tych wymagań, które ułatwi pracę nad nimi (złożoność !) 
+%     \item Opisują, jak funkcja powinna działać.
+%     \item Skupiają się na wyniku działania użytkownika.
+%     \item Definiuje wymagania użytkownika.
+%     \item Posiada funkcje uwzględnione w przypadkach użycia.
+%     \item Weryfikuje funkcjonalność system
+% \end{itemize}
+
+% \noindent \textbf{Wymagania niefunkcjonalne }
+% \begin{itemize}
+%     \item opisują ograniczenia, przy zachowaniu których system powinien realizować swe funkcje.     
+%     \item Opisują, jakie właściwości sprawią, że funkcja będzie działać.
+%     \item Skupiają się na uproszczeniu procesu i wykonania wyniku.
+%     \item Definiują oczekiwania i doświadczenia użytkownika działania użytkownika.
+%     \item Posiadają ograniczenia, które pomogą zredukować czas i koszty rozwoju.
+%     \item Weryfikują wydajność systemu.
+% \end{itemize}
+ 
+% \noindent \textbf{Wymagania funkcjonalne przykłady:}
+
+% Lista przykładów wymagań funkcjonalnych obejmuje każde zachowanie systemu IT, zmieniające się pod wpływem zastosowanej funkcji. Jeżeli wymagania funkcjonalne nie zostaną potwierdzone, system nie będzie działał.
+% \begin{itemize}
+%     \item Reguły biznesowe.
+%     \item Poziomy autoryzacji.
+%     \item  Śledzenie audytów.
+%     \item Interfejsy zewnętrzne.
+%     \item Funkcje administracyjne.
+%     \item Generowanie danych historycznych.
+%     \item Uwierzytelnianie użytkownika na żądanie.
+%     \item Logi serwera wszystkich istniejących danych.
+%     \item Generowanie raportów w określonym czasie.
+%     \item Definiowanie poziomów autoryzacji systemu.
+% \end{itemize}
+
+% \noindent \textbf{Wymagania niefunkcjonalne przykłady:}
+
+% \noindent Na liście wymagań niefunkcjonalnych znajdują się,
+% \begin{itemize}
+%     \item Pojemność.
+%     \item Wydajność.
+%     \item Środowisko.
+%     \item Użyteczność.
+%     \item Skalowalność.
+%     \item  Niezawodność.
+%     \item Odzyskiwalność.
+%     \item Bezpieczeństwo.
+%     \item Utrzymywalność.
+%     \item Interoperacyjność.
+%     \item Integralność danych.
+%     \item  2-poziomowe uwierzytelnianie.
+% \end{itemize}
+
+% \noindent Rozwinięcie wymagań niefunkcjonalnych:
+% \begin{itemize}
+%     \item Aplikacja IT powinna mieć kolor tła wszystkich ekranów \#fffaaa.
+%     \item Aplikacja IT powinna przestrzegać wymagań regulatora.
+%     \item Aplikacja IT powinien rejestrować każdą nieudaną próbę logowania;
+%     \item Użytkownicy powinni zmienić hasło po pierwszym udanym logowaniu.
+%     \item  Dashboard powinien pojawić się w ciągu 3 sekund po zalogowaniu użytkownika.
+%     \item Aplikacja IT powinien być w stanie obsłużyć XYZ liczbę użytkowników, zapewniając płynne działanie.
+% \end{itemize}
+
+% Jak zdefiniować wymagania funkcjonalne?
+
+% Jeśli twoje podejście do rozwoju oprogramowania jest zwinne (Agile), prawdopodobnie zdefiniujesz wymagania w dokumencie. Dokument wymagań funkcjonalnych będzie zawierał historie użytkowników, przypadki użycia, a także następujące sekcje.
+% \begin{itemize}
+%     \item Cel: Ta sekcja będzie zawierała całe tło, definicje i przegląd systemu;
+%     \item Zakres aplikacji, oczekiwania i zasady biznesowe;
+%     \item Wymagania dotyczące bazy danych, atrybuty systemu i wymagania funkcjonalne;
+%     \item Przypadki użycia, czyli opisywać, w jaki sposób użytkownik będzie wchodził w interakcję z systemem. Zdefiniuj rolę każdego aktora biorącego udział w interakcji;
+%     \item Napisz jasno cel wdrożenia systemu IT.
+%     \item Wspomnij o użytkownikach aplikacji, którzy szczegółowo opiszą, jak krok po kroku będą się angażowali w tworzenie aplikacji.
+%     \item Opracuj klikalny prototyp aplikacji. To pomoże Ci reprezentować produkt w lepszy i przekonujący sposób dla interesariuszy. Możesz wybrać prototypy do wyrzucenia lub prototypy interaktywne dla swojego projektu.
+% \end{itemize}
+
+% \noindent Jak zdefiniować wymaganie niefunkcjonalne?
+
+% Teraz nadchodzi część, w której definiujesz oczekiwania jakościowe aplikacji dedykowanej. Te atrybuty opisują sposoby, w jakie oczekujesz, że aplikacja będzie się zachowywała.
+% \begin{itemize}
+%     \item Zdefiniuj oczekiwania dotyczące użyteczności produktu.
+%     \item Opisz, do jakich praw i regulacji aplikacja powinna spełniać.
+%     \item Zdefiniuj dostępność aplikacji, czyli czy będzie ona funkcjonować 24/7/365?
+%     \item Określ wydajność systemu IT dla różnych funkcjonalności. To znaczy, w jakim czasie użytkownik powinien zobaczyć listę, jak długo użytkownik będzie połączony z aplikacją w przypadku braku połączenia z internetem, itp.
+%     \item Zdefiniuj wymagania dotyczące bezpieczeństwa systemu IT.
+%     \item Użyj narzędzi do automatycznego testowania, aby upewnić się co do wydajności aplikacji dedykowanej.
+% \end{itemize}
+
+
+% \subsection{Przkłady}
+
+% \noindent Przykłady wymagań funkcjonalnych aplikacji webowej:
+% \begin{itemize}
+%     \item Rejestracja i logowanie użytkowników.
+%     \item Bezpieczne uwierzytelnianie i autoryzacja użytkowników.
+%     \item Zarządzanie profilami użytkowników.
+%     \item Możliwość wyszukiwania treści w aplikacji.
+%     \item Funkcjonalność e-commerce, taka jak koszyk i proces kasowy.
+%     \item Treści generowane przez użytkowników, takie jak komentarze i oceny.
+%     \item Integracja z usługami stron trzecich, takimi jak media społecznościowe i bramki płatności.
+%     \item Dynamiczne aktualizacje treści i powiadomienia.
+%     \item Pulpit administracyjny do zarządzania aplikacją.
+% \end{itemize}
+% \noindent Przykłady wymagań niefunkcjonalnych aplikacji webowej:
+% \begin{itemize}
+%     \item Użyteczność aplikacji i dostępność, takie jak responsywny design i dostępność klawiatury.
+%     \item Wydajność aplikacji i skalowalność, np. szybkie czasy ładowania i zdolność do obsługi dużej liczby użytkowników jednocześnie.
+%     \item Bezpieczeństwo aplikacji i prywatność, takie jak szyfrowanie wrażliwych danych i ochrona przed atakami.
+%     \item Niezawodność aplikacji i dostępność, np. kopie zapasowe i plany odzyskiwania danych po awarii.
+%     \item Zgodność aplikacji z wymogami prawnymi i regulacyjnymi, takimi jak GDPR i przepisy dotyczące dostępności.
+%     \item Interoperacyjność aplikacji, taka jak zgodność z różnymi przeglądarkami i systemami operacyjnymi.
+%     \item Utrzymanie i wsparcie aplikacji, takie jak łatwość aktualizacji i dokumentacja dla programistów.
+%     \item Efektywność kosztowa aplikacji, taka jak minimalizacja kosztów serwera i hostingu.
+% \end{itemize}
+% System zarządzania treścią (CMS) umożliwiający edycję i usuwanie treści.
+
+% \noindent Przykłady wymagań funkcjonalnych aplikacji webowej:
+% \begin{itemize}
+%     \item Integracja aplikacji z zewnętrznymi API w celu wymiany danych lub rozszerzenia funkcjonalności.
+%     \item Funkcje optymalizacji aplikacji pod kątem wyszukiwarek (SEO) w celu poprawy widoczności w wyszukiwarkach internetowych.
+%     \item Obsługa wielu języków w aplikacji w celu dostosowania do użytkowników posługujących się różnymi językami.
+%     \item Narzędzia współpracy, takie jak czat w czasie rzeczywistym i udostępnianie plików dla zespołów.
+%     \item Narzędzia analizy danych do śledzenia zachowań użytkowników i wydajności aplikacji.
+% \end{itemize}
+% Projektowanie doświadczeń użytkownika (UX), takich jak łatwy w użyciu interfejs i przejrzysta nawigacja.
+
+% \noindent Przykłady wymagań niefunkcjonalnych aplikacji webowej:
+% \begin{itemize}
+%     \item Optymalizacja mobilna aplikacji, np. responsywny design i podejście mobile-first.
+%     \item Integracja systemu, np. kompatybilność z dotychczasowymi systemami i narzędziami stron trzecich.
+%     \item Bezpieczeństwo aplikacji i prywatność danych, takie jak szyfrowanie danych, kopie zapasowe i kontrola dostępu.
+%     \item Zgodność aplikacji z normami branżowymi, takimi jak PCI-DSS dla aplikacji e-commerce.
+%     \item Wsparcie dla użytkowników aplikacji, takie jak help desk, podręczniki użytkownika i samouczki.
+%     \item Monitorowanie aplikacji i raportowanie, takie jak śledzenie błędów i metryki wydajności.
+% \end{itemize}
+
+% To tylko kilka przykładów funkcjonalnych i niefunkcjonalnych wymagań aplikacji internetowych. Konkretne wymagania będą zależały od celu i charakteru aplikacji internetowej, a także potrzeb użytkowników i zainteresowanych stron.
+
+
+% ********** Koniec rozdziału **********

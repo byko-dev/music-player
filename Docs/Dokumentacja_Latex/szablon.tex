@@ -1,0 +1,59 @@
+% **** Szablon pracy magisterskiej, licencjackiej lub inżynierskiej ****
+
+\documentclass[polish,12pt,twoside,a4paper]{report}
+
+\input{style.tex}
+
+%definicja przydatnych poleceń
+\newcommand{\wydzial}{KOLEGIUM INFORMATYKI STOSOWANEJ}
+\newcommand{\kierunek}{Kierunek: INFORMATYKA}
+\newcommand{\specjalnosc}{Specjalność: {Technologie internetowe i mobilne}}
+\newcommand{\autor}{Kacper Nowak}
+\newcommand{\album}{Nr albumu studenta w67262}
+\newcommand{\temat}{Music Player}
+\newcommand{\promotor}{mgr inż. Ewa Żesławska}
+\newcommand{\typpracy}{Praca projektowa programowanie obiekotwe C\#}
+\newcommand{\miasto}{Rzeszów}
+\newcommand{\rok}{2023}
+
+\begin{document}
+
+% *************** Włączenie definicji pierwszych stron ***************
+\input{front.tex}
+
+
+% *************** Część główna pracy ***************
+\input{wstep.tex}
+\addcontentsline{toc}{chapter}{Wstęp}
+\newpage
+\input{R1.tex}
+\newpage
+\input{R2.tex}
+\newpage
+\input{R3.tex}
+\newpage
+\input{R4.tex}
+\newpage
+\input{R5.tex}
+\newpage
+
+% *************** Bibliografia ***************
+\begin{thebibliography}{6}
+\addcontentsline{toc}{chapter}{Bibliografia}
+%dodanie wpisu do spisu bibliograficznego
+
+  
+
+\bibitem{etykieta1}Jacek Matulewski, {\it C\#: lekcje programowania: praktyczna nauka programowania dla platform .NET i .NET Core}, Helion, Gliwice 2021.
+\bibitem{etykieta2}Joseph  Albahari, Eric Johannsen, {\it C\# 8.0 w pigułce}, Helion, Gliwice, 2021.
+\bibitem{etykieta3}R. S. Miles, {\it C\#: zacznij programować!}, Helion, Gliwice, 2020.
+\bibitem{etykieta4}Włodzimierz Gajda, {\it Git : rozproszony system kontroli wersji}, Helion, Gliwice, 2013.
+\bibitem{etykieta4}A. Stellman, J. Greene, {\it C\#. Rusz głową!}, Helion, Gliwice, 2022.
+\end{thebibliography}
+\newpage
+ 
+% *************** Zakończenie ***************
+\input{back.tex}
+
+\end{document}
+% *************** Koniec pliku szablon.tex ***************

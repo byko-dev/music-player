@@ -1,0 +1,54 @@
+% *************** Strony tytułowe ***************
+
+% ************************************************************
+% W tym miejscu znajduje sie definicja wyglądu pierwszych stron:
+% strony tytułowej, strony z oświadczeniem o treści pracy
+% i strony ze spisem treści
+% ************************************************************
+% *************** Strona tytułowa ***************
+%umieszczenie logo i nazwy uczelni
+\noindent
+\parbox{65mm}{\includegraphics[width=13.0cm, height=3.0cm]{logoWSIiZ}}
+
+\vspace{10mm}
+\begin{center}
+{\Large{}\textbf{\wydzial}}
+\end{center}
+\vspace{10mm}
+\noindent
+\hspace{30mm}{\Large{}\textbf{\kierunek}}\\
+
+\noindent
+\hspace{30mm}{\Large{}\textbf{\specjalnosc}}
+\vspace{30mm}
+\begin{center}
+	{\large{}\autor}\\
+	{\large{}\album}\\
+	\vspace{15pt}
+	{\huge{}\textbf{\textit{\temat}}}\\
+	\vspace{20pt}
+	{\normalsize{}Prowadzący: \promotor}\\
+	\vspace{100pt}
+	{\LARGE{}\textbf{\typpracy}}\\
+	\vspace{190pt}
+	{\large{}\textbf{\miasto {} \rok}}
+\end{center}
+
+% pusta zawartość stopki - brak numeru strony
+\thispagestyle{empty}
+
+% *************** Strona z oświadczeniem o treści pracy ***************
+\newpage
+\text{}
+
+\thispagestyle{empty}
+\newpage
+
+
+% *************** Spis treści ***************
+\tableofcontents
+% pusta zawartość stopki - brak numeru strony
+\thispagestyle{empty}
+\newpage
+
+% *************** Koniec pliku front.tex ***************
